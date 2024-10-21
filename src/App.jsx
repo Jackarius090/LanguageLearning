@@ -1,22 +1,21 @@
 import { useState } from 'react'
 import './App.css'
 import { Textarea } from "@/components/ui/textarea"
-
-
+import HighlightedText from '@/components/HighlightedText'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [highlightedText, setHighlightedText] = useState("");
 
   return (
-    <>
-    <h1 className='object-top'>Language Learning App</h1>
-      <div>
-        <label>
-          Insert text here:
-          <Textarea/>
-        </label>
+    <div className="flex h-screen p-4">
+    <h3 className='block'>Language Learning App</h3>
+          <div className="w-1/2 pr-4">
+            <Textarea setHighlightedText={setHighlightedText}/>
+          </div>
+          <div className="flex-1 pl-4">
+          <HighlightedText highlightedText={highlightedText}/>
+          </div>
       </div>
-    </>
   )
 }
 
