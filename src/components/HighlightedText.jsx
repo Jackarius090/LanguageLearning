@@ -2,10 +2,14 @@ import React from "react";
 
 const HighlightedText = ({ highlightedText }) => {
   return (
-    <div>
-      <h2>Highlighted Text</h2>
-      <p>{highlightedText ? highlightedText : "No text highlighted yet."}</p>
-    </div>
+    <>
+      <div className="relative">
+        <h3 className="text-2xl absolute -top-9">Definition:</h3>
+      </div>
+      <div>
+        <p>{highlightedText ? highlightedText : "No text highlighted yet."}</p>
+      </div>
+    </>
   );
 };
 

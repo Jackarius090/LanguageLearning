@@ -12,7 +12,7 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, ...props }, 
       onMouseUp={handleMouseUp}
       placeholder="Insert text here:"
       className={cn(
-        "flex min-h-[80px] size-1/2 rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+        "size-full min-h-max rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       ref={ref}
