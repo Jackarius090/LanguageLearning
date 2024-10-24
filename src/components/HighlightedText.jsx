@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from 'react';
 
-const HighlightedText = ({ highlightedText }) => {
+
+const HighlightedText = ({ highlightedText, translation }) => {
   return (
     <>
       <div className="relative">
@@ -8,6 +10,7 @@ const HighlightedText = ({ highlightedText }) => {
       </div>
       <div>
         <p>{highlightedText ? highlightedText : "No text highlighted yet."}</p>
+        <p>{translation ? translation : 'No translation yet.'}</p>
       </div>
     </>
   );
