@@ -6,7 +6,7 @@ const HighlightedText = ({ highlightedText, translation }) => {
   return (
     <>
       <div className="relative">
-        <h3 className="text-2xl absolute -top-9">Definition:</h3>
+        <h3 className="text-2xl absolute -top-10">Definition:</h3>
       </div>
       <div>
         <p>{highlightedText ? highlightedText : "No text highlighted yet."}</p>

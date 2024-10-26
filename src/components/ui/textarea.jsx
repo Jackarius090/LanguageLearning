@@ -3,46 +3,45 @@ import { cn } from "@/lib/utils";
 import { useState } from "react";
 
 const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedText, setTranslation, ...props }, ref) => {
-    const apiKey = process.env.REACT_APP_GOOGLE_CLOUD_API_KEY;
+  const apiKey = import.meta.env.VITE_GOOGLE_CLOUD_API_KEY;;
 
-    const handleMouseUp = () => {
-      const selectedText = window.getSelection().toString();
-      if (selectedText) {
-        setHighlightedText(selectedText);  // Update the highlightedText state
-        translateText(selectedText);       // Pass the selected text for translation
-      }
-    };
+  const handleMouseUp = () => {
+    const selectedText = window.getSelection().toString();
+    if (selectedText) {
+      setHighlightedText(selectedText);  // Update the highlightedText state
+      translateText(selectedText);       // Pass the selected text for translation
+    }
+  };
 
-    const translateText = async (TexttoTranslate) => {
-      try {
-        const response = await fetch(
-          `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              q: TexttoTranslate,      // Text to translate
-              target: "en", // Target language code
-            }),
-          }
-        );
-  
-        const data = await response.json();
-        if (data && data.data && data.data.translations) {
-          console.log(data.data.translations[0].translatedText)
-          setTranslation(data.data.translations[0].translatedText);  // Get the translated text
-        } else {
-          setTranslation('Error translating text');
+  const translateText = async (TexttoTranslate) => {
+    try {
+      const response = await fetch(
+        `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            q: TexttoTranslate,      // Text to translate
+            target: "en", // Target language code
+          }),
         }
-      } catch (error) {
-        console.error('Error with translation API:', error);
-        setTranslation('Failed to translate');
-      }
-    };
+      );
 
-  
+      const data = await response.json();
+      if (data && data.data && data.data.translations) {
+        setTranslation(data.data.translations[0].translatedText);  // Get the translated text
+      } else {
+        setTranslation('Error translating text');
+      }
+    } catch (error) {
+      console.error('Error with translation API:', error);
+      setTranslation('Failed to translate');
+    }
+  };
+
+
 
   return (
     <textarea
