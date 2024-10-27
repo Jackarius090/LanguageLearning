@@ -41,8 +41,6 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedT
     }
   };
 
-
-
   return (
     <textarea
       onMouseUp={handleMouseUp}

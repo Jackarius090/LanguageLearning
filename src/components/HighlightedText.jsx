@@ -8,9 +8,9 @@ const HighlightedText = ({ highlightedText, translation }) => {
       <div className="relative">
         <h3 className="text-2xl absolute -top-10">Definition:</h3>
       </div>
-      <div>
-        <p>{highlightedText ? highlightedText : "No text highlighted yet."}</p>
-        <p>{translation ? translation : 'No translation yet.'}</p>
+      <div className="pt-2">
+        <p className="text-lg">Original: {highlightedText ? highlightedText : "No text highlighted yet."}</p>
+        <p className="text-lg pt-3">Translation: {translation ? translation : 'No translation yet.'}</p>
       </div>
     </>
   );
