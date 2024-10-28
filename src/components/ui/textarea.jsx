@@ -57,9 +57,9 @@ const handleClearClick = () => {
 }
 
   return (
-    <div className="h-full">
-      <Button className="m-3" onClick={handleDanishClick} variant="outline">Add sample Danish text</Button>
-      <Button className="m-3 " variant="outline" onClick={handleClearClick}>Clear textbox</Button>
+    <div className="h-full flex flex-col place-items-center">
+      <Button className="m-3 text-wrap w-4/5" onClick={handleDanishClick} variant="outline">Add sample Danish text</Button>
+      <Button className="m-3 w-4/5" variant="outline" onClick={handleClearClick}>Clear textbox</Button>
       <textarea
         onMouseUp={handleMouseUp}
         value={text}

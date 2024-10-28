@@ -9,8 +9,8 @@ const HighlightedText = ({ highlightedText, translation }) => {
         <h3 className="text-2xl absolute -top-10">Definition:</h3>
       </div>
       <div className="pt-2">
-        <p className="text-lg">Original: {highlightedText ? highlightedText : "No text highlighted yet."}</p>
-        <p className="text-lg pt-3">Translation: {translation ? translation : 'No translation yet.'}</p>
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg">Original: {highlightedText ? highlightedText : "No text highlighted yet."}</p>
+        <p className="text-xs sm:text-sm md:text-md lg:text-lg pt-3">Translation: {translation ? translation : 'No translation yet.'}</p>
       </div>
     </>
   );
