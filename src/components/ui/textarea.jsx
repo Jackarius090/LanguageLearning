@@ -48,13 +48,18 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedT
 
 const [text, setText] = useState('')
 
-const handleClick = () => {
+const handleDanishClick = () => {
   setText(placeholderText)
   }
 
+const handleClearClick = () => {
+  setText("")
+}
+
   return (
     <div className="h-full">
-      <Button className="mb-3" onClick={handleClick} variant="outline">Add sample text</Button>
+      <Button className="m-3" onClick={handleDanishClick} variant="outline">Add sample Danish text</Button>
+      <Button className="m-3 " variant="outline" onClick={handleClearClick}>Clear textbox</Button>
       <textarea
         onMouseUp={handleMouseUp}
         value={text}
