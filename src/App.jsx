@@ -8,12 +8,13 @@ import HighlightedText from '@/components/HighlightedText'
 function App() {
   const [highlightedText, setHighlightedText] = useState("Highlight a word to see its definition!");
   const [translation, setTranslation] = useState('');  // Holds the translated text
+  const [text, setText] = useState('')
 
   return (
     
     <div className="size-full">
       <div className="m-6 pl-36 ml-10">
-        <NavBar className="flex flex-wrap"/>
+        <NavBar className="flex flex-wrap" setText={setText}/>
       </div>
       <div className="w-full pb-8 mb-8 flex items-center">
         <img src='public/favicon-512x512.png' className='w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 mx-10'></img>
@@ -23,7 +24,10 @@ function App() {
         <div className='flex size-full p-5'>
           <div className="w-3/5 pr-4 h-full">
             <Textarea setHighlightedText={setHighlightedText} 
-                      setTranslation={setTranslation}/>
+                      setTranslation={setTranslation}
+                      text={text}
+                      setText={setText}
+                      />
           </div>
           <div className="flex-1 pl-4">
             <HighlightedText highlightedText={highlightedText} translation={translation}/>

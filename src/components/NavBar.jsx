@@ -11,7 +11,13 @@ import {
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu"
 
-const NavBar = ({handleDanishClick}) => {
+const NavBar = ({setText}) => {
+
+    const handleDanishClick = () => {
+        const placeholderText = "Sønderborg er en lille by i Sønderjylland. Den er ikke særlig stor, men hyggelig. I en gade i Sønderborg står der et stort, gammelt, rødt hus. Der bor Morten sammen med sin gode ven Thomas. De to er flyttet ind i lejligheden i august, lige før det nye semester begyndte. I deres hus bor der også nogle andre personer. På den første etage bor der en matematiklærer med sin kone og deres to småbørn. Påanden etage bor en gammel dame, der engang har arbejdet som frisør. Hun er meget sød og har tit besøg af hendes børnebørn. De kommer gerne forbi hos hende for at høre spændende historier fra den tid mormor var ung og for at fånoget af hendes lækre kage. Morten og Thomas har en hyggelig lejlighed. I køkkenet stå r der et bord og fire stole. Der sidder de tit sammen med deres venner og spiser. Morten er nemlig meget godt til at lave mad. Thomas kan det ikke så godt, så vasker han alltid op."
+        setText(placeholderText)
+        }
+    
   return (
     <div>
         <NavigationMenu>
@@ -30,9 +36,14 @@ const NavBar = ({handleDanishClick}) => {
                     </p>
                     </div>
                 </li>
-                <SimpleListItem onClick={handleDanishClick} title="Danish sample text">
-                    Add a sample Danish text to the text area.
-                </SimpleListItem>
+                <li>
+                    <div onClick={handleDanishClick} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+                        <div className="text-sm font-medium leading-none">Danish text</div>
+                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            Add a sample Danish text to the text area.
+                        </p>
+                    </div>
+                </li>
                 <SimpleListItem title="Installation Guide">
                     Quick guide on installing and setting up your project.
                 </SimpleListItem>
