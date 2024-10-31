@@ -23,22 +23,20 @@ const NavBar = ({setText}) => {
         <NavigationMenu>
         <NavigationMenuList className="flex justify-center flex-wrap">
             <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting Started</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Sample texts</NavigationMenuTrigger>
             <NavigationMenuContent>
                 <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
-                    <div className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
-                    <div className="mb-2 mt-4 text-lg font-medium">
-                        Beautiful Design
-                    </div>
-                    <p className="text-sm leading-tight text-muted-foreground">
-                        Stunning components with clean UI and elegant styles.
-                    </p>
+                    <div className="flex items-center place-content-center h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
+                        <img className="size-12 mb-5" src="public/favicon-192x192.png" alt="" />
+                        <div className="text-lg font-medium">
+                            Choose a sample text on the right!
+                        </div>
                     </div>
                 </li>
                 <li>
                     <div onClick={handleDanishClick} className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
-                        <div className="text-sm font-medium leading-none">Danish text</div>
+                        <div className="text-sm font-medium leading-none">🇩🇰 Danish text</div>
                         <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                             Add a sample Danish text to the text area.
                         </p>
