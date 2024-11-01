@@ -11,10 +11,6 @@
   margin: 0 auto;
 }
 
-body, * {
-  color: rgba(0, 0, 0, 0.75);
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -23,7 +19,7 @@ body, * {
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: 220.9 39.3% 11%;
+    --primary: 0, 0, 0, 0.83;
     --primary-foreground: 210 20% 98%;
     --secondary: 220 14.3% 95.9%;
     --secondary-foreground: 220.9 39.3% 11%;
@@ -44,13 +40,13 @@ body, * {
     --radius: 0.5rem;
   }
   .dark {
-    --background: 224 71.4% 4.1%;
+    --background: 224 71.4% 4%;
     --foreground: 210 20% 98%;
     --card: 224 71.4% 4.1%;
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
-    --primary: 210 20% 98%;
+    --primary: 255, 255, 255, 0.95;
     --primary-foreground: 220.9 39.3% 11%;
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
