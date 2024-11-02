@@ -21,7 +21,7 @@ function DarkModeSwitch() {
 
   return (
     <label htmlFor="dark-mode">
-        Dark mode
+        <span className='text-xs sm:text-sm md:text-md lg:text-lg'>Dark mode</span>
         <Switch onClick={toggleTheme} id="dark-mode" />
     </label>
     );

@@ -3,17 +3,18 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Tomorrow", sans-serif;
+  /* font-family: "Tomorrow", sans-serif; */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 400;
   font-style: normal;
-  width: 80vw;
+  width: 90vw;
   text-align: center;
   margin: 0 auto;
 }
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 98%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
@@ -46,7 +47,7 @@
     --card-foreground: 210 20% 98%;
     --popover: 224 71.4% 4.1%;
     --popover-foreground: 210 20% 98%;
-    --primary: 255, 255, 255, 0.95;
+    --primary: 255, 255, 255, 0.90;
     --primary-foreground: 220.9 39.3% 11%;
     --secondary: 215 27.9% 16.9%;
     --secondary-foreground: 210 20% 98%;
