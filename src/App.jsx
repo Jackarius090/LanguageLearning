@@ -8,6 +8,7 @@ import DarkModeSwitch from "@/components/DarkModeSwitch"
 
 
 function App() {
+  const [language, setLanguage] = useState('');  // Holds the translated text
   const [highlightedText, setHighlightedText] = useState("Highlight a word to see its definition!");
   const [translation, setTranslation] = useState('');  // Holds the translated text
   const [text, setText] = useState('')
@@ -27,7 +28,10 @@ function App() {
       <div className="flex pt-4 mb-4 h-screen border-2">
         <div className='flex size-full pt-5 md:p-5'>
           <div className="w-9/12 mr-1 h-full">
-            <Textarea setHighlightedText={setHighlightedText} 
+            <Textarea 
+                      setLanguage={setLanguage}
+                      language={language}
+                      setHighlightedText={setHighlightedText} 
                       setTranslation={setTranslation}
                       text={text}
                       setText={setText}

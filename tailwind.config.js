@@ -7,7 +7,9 @@ export default {
   ],
   theme: {
   	extend: {
-		
+		maxWidth: {
+			'74ch': '74ch',
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
