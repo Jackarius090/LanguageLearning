@@ -1,4 +1,6 @@
 // TODO Add GPT function
+// TODO Fix detect text to use response from translation api.
+
 
 import { useState } from 'react'
 import { Textarea } from "@/components/ui/textarea"
@@ -27,7 +29,7 @@ function App() {
       </div>
       <div className="flex pt-4 mb-4 h-screen border-2">
         <div className='flex size-full pt-5 md:p-5'>
-          <div className="w-9/12 mr-1 h-full">
+          <div className="w-9/12 mr-1 h-full flex place-content-center">
             <Textarea 
                       setLanguage={setLanguage}
                       language={language}
@@ -37,7 +39,7 @@ function App() {
                       setText={setText}
                       />
           </div>
-          <div className="flex-1 pl-3 pt-3">
+          <div className="flex-1 pl-3 pt-3 xl:ml-0">
             <HighlightedText highlightedText={highlightedText} translation={translation}/>
         </div>
         </div>

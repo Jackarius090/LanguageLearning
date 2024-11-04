@@ -60,6 +60,7 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedT
       const data = await response.json();
       if (data && data.data && data.data.translations) {
         setTranslation(data.data.translations[0].translatedText);  // Get the translated text
+        console.log(JSON.stringify(data, null, 2));
       } else {
         setTranslation('Error translating text');
       }
@@ -74,7 +75,7 @@ const handleClearClick = () => {
 }
 
   return (
-    <div className="h-full flex flex-col place-items-center max-w-74ch">
+    <div className="size-full flex flex-col place-items-center  max-w-74ch">
       <Button className="m-3 w-4/5" variant="outline" onClick={handleClearClick}>Clear textbox</Button>
       <p>Language: {language}</p>
       <textarea
