@@ -10,34 +10,6 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedT
     if (selectedText) {
       setHighlightedText(selectedText);  // Update the highlightedText state
       translateText(selectedText);       // Pass the selected text for translation
-      detectLanguage(selectedText)
-    }
-  };
-
-  const detectLanguage = async (TexttoTranslate) => {
-    try {
-      const response = await fetch(
-        `https://translation.googleapis.com/language/translate/v2/detect?key=${apiKey}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            q: TexttoTranslate,      // Text to detect        
-          }),
-        }
-      );
-
-      const data = await response.json();
-      if (data && data.data && data.data.detections) {
-        setLanguage(data.data.detections[0][0].language);  // Get the translated text
-      } else {
-        setLanguage('Error translating text');
-      }
-    } catch (error) {
-      console.error('Error with language detection API:', error);
-      setLanguage('Failed to detect language');
     }
   };
 
@@ -56,10 +28,10 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedT
           }),
         }
       );
-
       const data = await response.json();
       if (data && data.data && data.data.translations) {
         setTranslation(data.data.translations[0].translatedText);  // Get the translated text
+        setLanguage(data.data.translations[0].detectedSourceLanguage)
         console.log(JSON.stringify(data, null, 2));
       } else {
         setTranslation('Error translating text');
@@ -70,13 +42,11 @@ const Textarea = React.forwardRef(({ className, setHighlightedText, highlightedT
     }
   };
 
-const handleClearClick = () => {
-  setText("")
-}
+// const handleClearClick = () => setText("")
 
   return (
     <div className="size-full flex flex-col place-items-center  max-w-74ch">
-      <Button className="m-3 w-4/5" variant="outline" onClick={handleClearClick}>Clear textbox</Button>
+      <Button className="m-3 w-4/5" variant="outline" onClick={() => setText("")}>Clear textbox</Button>
       <p>Language: {language}</p>
       <textarea
         spellCheck={false}
