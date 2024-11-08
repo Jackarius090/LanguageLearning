@@ -1,6 +1,7 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { translateText } from "@/lib/translateFunction";
 
 const Textarea = React.forwardRef(
   (
@@ -21,44 +22,26 @@ const Textarea = React.forwardRef(
     const handleMouseUp = () => {
       const selectedText = window.getSelection().toString();
       if (selectedText) {
-        setHighlightedText(selectedText); // Update the highlightedText state
-        translateText(selectedText); // Pass the selected text for translation
+        setHighlightedText(selectedText);
+        handleTranslate(selectedText);
       }
     };
 
-    const translateText = async (TexttoTranslate) => {
+    const handleTranslate = async (TexttoTranslate) => {
       try {
-        const response = await fetch(
-          `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              q: TexttoTranslate, // Text to translate
-              target: "en", // Target language code
-            }),
-          }
+        const { translatedText, detectedLanguage } = await translateText(
+          TexttoTranslate,
+          apiKey
         );
-        const data = await response.json();
-        if (data && data.data && data.data.translations) {
-          setTranslation(data.data.translations[0].translatedText); // Get the translated text
-          setLanguage(data.data.translations[0].detectedSourceLanguage);
-          console.log(JSON.stringify(data, null, 2));
-        } else {
-          setTranslation("Error translating text");
-        }
+        setTranslation(translatedText);
+        setLanguage(detectedLanguage);
       } catch (error) {
-        console.error("Error with translation API:", error);
         setTranslation("Failed to translate");
       }
     };
 
-    // const handleClearClick = () => setText("")
-
     return (
-      <div className="size-full flex flex-col place-items-center  max-w-74ch">
+      <div className="size-full w-9/12 max-w-74ch mr-1 flex flex-col place-items-center place-content-center">
         <Button
           className="m-3 w-4/5"
           variant="outline"
