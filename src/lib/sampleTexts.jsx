@@ -29,3 +29,16 @@ Source: https://public.websites.umich.edu/~dporter/sampler/sampler.html
 
 export const danishText =
   "Sønderborg er en lille by i Sønderjylland. Den er ikke særlig stor, men hyggelig. I en gade i Sønderborg står der et stort, gammelt, rødt hus. Der bor Morten sammen med sin gode ven Thomas. De to er flyttet ind i lejligheden i august, lige før det nye semester begyndte. I deres hus bor der også nogle andre personer. På den første etage bor der en matematiklærer med sin kone og deres to småbørn. Påanden etage bor en gammel dame, der engang har arbejdet som frisør. Hun er meget sød og har tit besøg af hendes børnebørn. De kommer gerne forbi hos hende for at høre spændende historier fra den tid mormor var ung og for at fånoget af hendes lækre kage. Morten og Thomas har en hyggelig lejlighed. I køkkenet stå r der et bord og fire stole. Der sidder de tit sammen med deres venner og spiser. Morten er nemlig meget godt til at lave mad. Thomas kan det ikke så godt, så vasker han alltid op.";
+
+export const germanText = `Mein Name ist Peter, und ich gehe heute in den Supermarkt. Ein Supermarkt ist ein Laden, in dem man Lebensmittel und andere Dinge kaufen kann.
+
+Wenn ich in den Supermarkt komme, sehe ich viele Regale voller Essen. Ich nehme meistens einen Einkaufswagen, damit ich meine Dinge dort hineinlegen kann. Manchmal nehme ich auch einen Einkaufskorb, wenn ich nicht so viel kaufen möchte.
+
+Zuerst gehe ich zur Obst- und Gemüseabteilung. Dort finde ich frische Äpfel, Bananen und viele bunte Gemüsesorten. Ich suche mir aus, was ich mag, und lege es in meinen Wagen.
+
+Dann gehe ich zur Milch- und Joghurtabteilung. Ich nehme eine Flasche Milch und ein paar Becher Joghurt. Milch ist gesund und Joghurt schmeckt lecker!
+
+Der Supermarkt hat auch eine Brotabteilung. Ich wähle mein Lieblingsbrot, manchmal Vollkornbrot oder ein Baguette.
+
+Dann gehe ich zur Kasse. Die freundliche Kassiererin scannt meine Produkte und sagt mir den Preis. Ich zahle meistens mit Karte, aber heute bezahle ich in bar. Dann packe ich meine Einkäufe in Tüten und verlasse den Supermarkt.
+`;
