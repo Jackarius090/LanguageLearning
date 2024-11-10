@@ -10,6 +10,7 @@ import {
 import { chineseText } from "@/lib/sampleTexts";
 import { danishText } from "@/lib/sampleTexts";
 import { germanText } from "@/lib/sampleTexts";
+import { frenchText } from "@/lib/sampleTexts";
 
 const NavBar = ({ setText }) => {
   return (
@@ -28,9 +29,6 @@ const NavBar = ({ setText }) => {
                     <div className="text-sm font-medium leading-none">
                       🇩🇰 Danish text
                     </div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Add a sample Danish text to the text area.
-                    </p>
                   </div>
                 </li>
                 <li className="row-span-3">
@@ -53,9 +51,6 @@ const NavBar = ({ setText }) => {
                     <div className="text-sm font-medium leading-none">
                       Chinese text
                     </div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Add a sample Traditional Chinese text to the text area.
-                    </p>
                   </div>
                 </li>
                 <li>
@@ -66,9 +61,16 @@ const NavBar = ({ setText }) => {
                     <div className="text-sm font-medium leading-none">
                       German text
                     </div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                      Add a sample Traditional Chinese text to the text area.
-                    </p>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    onClick={() => setText(frenchText)}
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium leading-none">
+                      French text
+                    </div>
                   </div>
                 </li>
                 <SimpleListItem title="Typography Styles">
