@@ -7,10 +7,14 @@ import {
   NavigationMenuTrigger,
   NavigationMenuContent,
 } from "@/components/ui/navigation-menu";
-import { chineseText } from "@/lib/sampleTexts";
-import { danishText } from "@/lib/sampleTexts";
-import { germanText } from "@/lib/sampleTexts";
-import { frenchText } from "@/lib/sampleTexts";
+
+import {
+  chineseText,
+  italianText,
+  danishText,
+  germanText,
+  frenchText,
+} from "@/lib/sampleTexts";
 
 const NavBar = ({ setText }) => {
   return (
@@ -50,6 +54,16 @@ const NavBar = ({ setText }) => {
                   >
                     <div className="text-sm font-medium leading-none">
                       Chinese text
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div
+                    onClick={() => setText(italianText)}
+                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                  >
+                    <div className="text-sm font-medium leading-none">
+                      Italian text
                     </div>
                   </div>
                 </li>
