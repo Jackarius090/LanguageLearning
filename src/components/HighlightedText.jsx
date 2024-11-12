@@ -2,7 +2,7 @@ import React from "react";
 
 const HighlightedText = ({ highlightedText, translation }) => {
   return (
-    <div className="flex-1 pl-3 pt-3 xl:ml-0">
+    <div className="flex-1 px-2 pt-3">
       <div className="relative">
         <h1 className="text-sm md:text-lg lg:text-lg xl:text-xl 2xl:text-2xl absolute -top-9">
           Definition:

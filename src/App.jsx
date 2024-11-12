@@ -1,4 +1,5 @@
 // TODO Add GPT function
+// TODO change language codes to actual language name
 
 import { useState } from "react";
 import NavBar from "./components/NavBar";

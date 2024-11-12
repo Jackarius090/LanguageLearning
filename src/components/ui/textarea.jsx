@@ -41,7 +41,7 @@ const Textarea = React.forwardRef(
     };
 
     return (
-      <div className="size-full w-9/12 max-w-74ch mr-1 flex flex-col place-items-center place-content-center">
+      <div className="size-full pl-2 w-9/12 max-w-74ch flex flex-col place-items-center place-content-center">
         <Button
           className="m-3 w-4/5"
           variant="outline"
@@ -57,7 +57,7 @@ const Textarea = React.forwardRef(
           onChange={(e) => setText(e.target.value)}
           placeholder="Add text here..."
           className={cn(
-            "text-xs sm:text-sm md:text-md lg:text-lg size-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+            "text-xs sm:text-sm md:text-md lg:text-lg size-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
             className
           )}
           ref={ref}
