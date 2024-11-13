@@ -1,4 +1,5 @@
 import React from "react";
+import GptWindow from "./GptWindow";
 
 const HighlightedText = ({ highlightedText, translation }) => {
   return (
@@ -17,6 +18,7 @@ const HighlightedText = ({ highlightedText, translation }) => {
           Translation: {translation ? translation : "No translation yet."}
         </p>
       </div>
+      <GptWindow />
     </div>
   );
 };

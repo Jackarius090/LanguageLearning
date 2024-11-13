@@ -1,5 +1,6 @@
 // TODO Add GPT function
 // TODO change language codes to actual language name
+// TODO fix nav bar in small screens
 
 import { useState } from "react";
 import NavBar from "./components/NavBar";

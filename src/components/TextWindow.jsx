@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import HighlightedText from "@/components/HighlightedText";
+import GptWindow from "./GptWindow";
 
 export default function TextWindow({ setText, text }) {
   const [language, setLanguage] = useState(""); // Holds the translated text
@@ -20,10 +21,13 @@ export default function TextWindow({ setText, text }) {
           text={text}
           setText={setText}
         />
+        {/* <div className="flex-col"> */}
         <HighlightedText
           highlightedText={highlightedText}
           translation={translation}
         />
+        
+        {/* </div> */}
       </div>
     </div>
   );
