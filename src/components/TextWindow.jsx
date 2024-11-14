@@ -4,7 +4,7 @@ import HighlightedText from "@/components/HighlightedText";
 import GptWindow from "./GptWindow";
 
 export default function TextWindow({ setText, text }) {
-  const [language, setLanguage] = useState(""); // Holds the translated text
+  const [languageCode, setLanguageCode] = useState(""); // Holds the translated text
   const [highlightedText, setHighlightedText] = useState(
     "Highlight a word to see its definition!"
   );
@@ -14,8 +14,8 @@ export default function TextWindow({ setText, text }) {
     <div className="flex pt-4 mb-4 h-screen border-2">
       <div className="flex size-full pt-5 md:p-5">
         <Textarea
-          setLanguage={setLanguage}
-          language={language}
+          setLanguageCode={setLanguageCode}
+          languageCode={languageCode}
           setHighlightedText={setHighlightedText}
           setTranslation={setTranslation}
           text={text}
@@ -26,7 +26,7 @@ export default function TextWindow({ setText, text }) {
           highlightedText={highlightedText}
           translation={translation}
         />
-        
+
         {/* </div> */}
       </div>
     </div>

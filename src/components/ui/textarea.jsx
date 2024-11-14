@@ -2,14 +2,15 @@ import * as React from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { translateText } from "@/lib/translateFunction";
+import { getLanguageName } from "@/lib/utils";
 
 const Textarea = React.forwardRef(
   (
     {
       className,
       setHighlightedText,
-      language,
-      setLanguage,
+      languageCode,
+      setLanguageCode,
       setTranslation,
       text,
       setText,
@@ -34,11 +35,13 @@ const Textarea = React.forwardRef(
           apiKey
         );
         setTranslation(translatedText);
-        setLanguage(detectedLanguage);
+        setLanguageCode(detectedLanguage);
       } catch (error) {
         setTranslation("Failed to translate");
       }
     };
+
+    const language = getLanguageName(languageCode);
 
     return (
       <div className="size-full pl-2 w-9/12 max-w-74ch flex flex-col place-items-center place-content-center">
