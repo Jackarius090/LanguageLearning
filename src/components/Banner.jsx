@@ -1,4 +1,4 @@
-import DarkModeSwitch from "./DarkModeSwitch";
+import ThemeSwitch from "./ThemeSwitch";
 
 export default function Banner() {
   return (
@@ -10,7 +10,7 @@ export default function Banner() {
       <h2 className="w-9/12 text-2xl md:text-3xl lg:text-4xl font-bold">
         Language Learning App
       </h2>
-      <DarkModeSwitch />
+      <ThemeSwitch />
     </div>
   );
 }

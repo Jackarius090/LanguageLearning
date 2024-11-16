@@ -1,7 +1,6 @@
-import { useState } from "react";
-import { Textarea } from "@/components/ui/textarea";
 import HighlightedText from "@/components/HighlightedText";
-import GptWindow from "./GptWindow";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 
 export default function TextWindow({ setText, text }) {
   const [languageCode, setLanguageCode] = useState(""); // Holds the translated text

@@ -1,5 +1,6 @@
 // TODO Add GPT function
 // TODO fix nav bar in small screens
+// TODO Add acessibility features
 
 import { useState } from "react";
 import NavBar from "./components/NavBar";
