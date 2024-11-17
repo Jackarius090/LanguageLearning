@@ -191,5 +191,7 @@ export const languageCodes = [
   { code: "yo", name: "Yoruba" },
   { code: "za", name: "Zhuang; Chuang" },
   { code: "zh", name: "Chinese" },
+  { code: "zh-CN", name: "Chinese (Simplified)" },
+  { code: "zh-TW", name: "Chinese (Traditional)" },
   { code: "zu", name: "Zulu" },
 ];

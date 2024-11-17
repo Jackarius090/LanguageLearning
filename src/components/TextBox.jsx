@@ -31,6 +31,7 @@ const TextBox = ({
       );
       setTranslation(translatedText);
       setLanguageCode(detectedLanguage);
+      console.log(detectedLanguage);
     } catch (error) {
       setTranslation("Failed to translate");
     }
@@ -39,11 +40,10 @@ const TextBox = ({
   const language = getLanguageName(languageCode);
 
   return (
-    <div className="colorful:bg-secondary size-full pl-2 w-9/12 max-w-74ch flex flex-col place-items-center place-content-center">
+    <div className="size-full pl-2 w-9/12 max-w-74ch flex flex-col place-items-center place-content-center">
       <Button
-        variant="destructive"
-        className="m-3 w-4/5 colorful:secondary"
-        // variant="outline"
+        className="m-3 w-4/5"
+        variant="outline"
         onClick={() => setValue("")}
       >
         Clear textbox

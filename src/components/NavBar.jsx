@@ -20,7 +20,7 @@ import { useTextStore } from "@/lib/textStore";
 const NavBar = () => {
   const setValue = useTextStore((state) => state.setValue);
   return (
-    <div className="m-6 ml-48">
+    <div className="lg:m-6 lg:ml-48">
       <NavigationMenu>
         <NavigationMenuList className="flex justify-center flex-wrap">
           <NavigationMenuItem>
@@ -51,7 +51,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <div
-                    onClick={() => setText(chineseText)}
+                    onClick={() => setValue(chineseText)}
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium leading-none">
@@ -61,7 +61,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <div
-                    onClick={() => setText(italianText)}
+                    onClick={() => setValue(italianText)}
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium leading-none">
@@ -71,7 +71,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <div
-                    onClick={() => setText(germanText)}
+                    onClick={() => setValue(germanText)}
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium leading-none">
@@ -81,7 +81,7 @@ const NavBar = () => {
                 </li>
                 <li>
                   <div
-                    onClick={() => setText(frenchText)}
+                    onClick={() => setValue(frenchText)}
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium leading-none">
