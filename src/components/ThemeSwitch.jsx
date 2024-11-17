@@ -11,19 +11,14 @@ function ThemeSwitch() {
   );
 
   useEffect(() => {
-    // Remove existing theme classes first
-    document.documentElement.classList.remove("light", "dark", "colorful");
-    // Add the selected theme as a class
-    if (colorMode == true) {
-      document.documentElement.classList.add("colorful");
-    } else if (darkMode === true) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.add("light");
-    }
+    document.documentElement.classList.toggle("dark");
     localStorage.setItem("darkMode", darkMode);
+  }, [darkMode]);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("colorful");
     localStorage.setItem("colorMode", colorMode);
-  }, [darkMode, colorMode]);
+  }, [colorMode]);
 
   return (
     <div className="flex flex-col space-y-4">

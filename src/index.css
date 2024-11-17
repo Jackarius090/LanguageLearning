@@ -67,19 +67,19 @@
     --chart-5: 340 75% 55%;
   }
   .colorful {
-    --background: 22, 64%, 52%;
+    --background: 192, 70%, 43%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 0 0% 100%;
     --popover-foreground: 224 71.4% 4.1%;
-    --primary: 0, 0, 0, 0.83;
+    --primary: 32, 100%, 49%;
     --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
+    --secondary: 43, 100%, 51%;
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 220 14.3% 95.9%;
     --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
+    --accent: 15, 88%, 52%;
     --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
@@ -93,6 +93,9 @@
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+  .colorful.dark {
+    --background: 40, 70%, 43%;
+  }
 }
 
 @layer base {
@@ -100,6 +103,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition duration-300;
   }
 }

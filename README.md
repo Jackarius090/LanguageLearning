@@ -10,3 +10,11 @@ Try it out [HERE](https://google.com/)!
 The project is built in React and uses [Google Cloud Translation API](https://cloud.google.com/translate?hl=en).
 
 The UI is made with shadcn components styled with Tailwind CSS.
+
+Tech used:
+
+React
+Tailwind CSS
+Shadcn
+Google Cloud Translation API
+Zustand

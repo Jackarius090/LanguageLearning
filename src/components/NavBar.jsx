@@ -15,8 +15,10 @@ import {
   germanText,
   frenchText,
 } from "@/lib/sampleTexts";
+import { useTextStore } from "@/lib/textStore";
 
-const NavBar = ({ setText }) => {
+const NavBar = () => {
+  const setValue = useTextStore((state) => state.setValue);
   return (
     <div className="m-6 ml-48">
       <NavigationMenu>
@@ -27,7 +29,7 @@ const NavBar = ({ setText }) => {
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li>
                   <div
-                    onClick={() => setText(danishText)}
+                    onClick={() => setValue(danishText)}
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium leading-none">

@@ -1,0 +1,230 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "/Users/jackdickinson/repos/LanguageLearning",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2024-11-16 21:59:50",
+            "filesum": 35,
+            "codesum": 8314,
+            "commentsum": 77,
+            "blanksum": 186,
+            "filelist": [
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": ".env"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 12,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 4,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": ".zshrc"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "components.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "eslint.config.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "jsconfig.json"
+                },
+                {
+                    "blank": 80,
+                    "code": 7133,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 42,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "postcss.config.js"
+                },
+                {
+                    "filename": "public/favicon-192x192.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/favicon-32x32.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public/favicon-512x512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 3,
+                    "code": 4,
+                    "comment": 1,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 3,
+                    "code": 14,
+                    "comment": 6,
+                    "filename": "src/App.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src/components/Banner.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "src/components/GptWindow.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 24,
+                    "comment": 0,
+                    "filename": "src/components/HighlightedText.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 149,
+                    "comment": 0,
+                    "filename": "src/components/NavBar.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 59,
+                    "comment": 1,
+                    "filename": "src/components/TextBox.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 27,
+                    "comment": 2,
+                    "filename": "src/components/TextWindow.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 47,
+                    "comment": 16,
+                    "filename": "src/components/ThemeSwitch.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 46,
+                    "comment": 0,
+                    "filename": "src/components/ui/button.jsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 108,
+                    "comment": 0,
+                    "filename": "src/components/ui/navigation-menu.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 33,
+                    "comment": 2,
+                    "filename": "src/components/ui/Switch.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src/components/ui/textarea.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 104,
+                    "comment": 1,
+                    "filename": "src/index.css"
+                },
+                {
+                    "blank": 0,
+                    "code": 195,
+                    "comment": 0,
+                    "filename": "src/lib/languageCodes.js"
+                },
+                {
+                    "blank": 27,
+                    "code": 51,
+                    "comment": 1,
+                    "filename": "src/lib/sampleTexts.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "src/lib/textStore.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 29,
+                    "comment": 1,
+                    "filename": "src/lib/translateFunction.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 10,
+                    "comment": 32,
+                    "filename": "src/lib/utils.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "src/main.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 59,
+                    "comment": 1,
+                    "filename": "tailwind.config.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "vite.config.js"
+                }
+            ]
+        }
+    ]
+}

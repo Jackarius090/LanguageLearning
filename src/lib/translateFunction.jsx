@@ -29,3 +29,4 @@ export const translateText = async (TexttoTranslate, apiKey) => {
     throw new Error("Failed to translate");
   }
 };
+  

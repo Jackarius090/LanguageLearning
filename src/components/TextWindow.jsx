@@ -1,8 +1,8 @@
 import HighlightedText from "@/components/HighlightedText";
-import { Textarea } from "@/components/ui/textarea";
+import TextBox from "@/components/TextBox";
 import { useState } from "react";
 
-export default function TextWindow({ setText, text }) {
+export default function TextWindow() {
   const [languageCode, setLanguageCode] = useState(""); // Holds the translated text
   const [highlightedText, setHighlightedText] = useState(
     "Highlight a word to see its definition!"
@@ -12,13 +12,11 @@ export default function TextWindow({ setText, text }) {
   return (
     <div className="flex pt-4 mb-4 h-screen border-2">
       <div className="flex size-full pt-5 md:p-5">
-        <Textarea
+        <TextBox
           setLanguageCode={setLanguageCode}
           languageCode={languageCode}
           setHighlightedText={setHighlightedText}
           setTranslation={setTranslation}
-          text={text}
-          setText={setText}
         />
         {/* <div className="flex-col"> */}
         <HighlightedText

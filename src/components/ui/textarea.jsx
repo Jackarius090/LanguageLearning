@@ -1,76 +1,19 @@
 import * as React from "react";
+
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { translateText } from "@/lib/translateFunction";
-import { getLanguageName } from "@/lib/utils";
 
-const Textarea = React.forwardRef(
-  (
-    {
-      className,
-      setHighlightedText,
-      languageCode,
-      setLanguageCode,
-      setTranslation,
-      text,
-      setText,
-      ...props
-    },
-    ref
-  ) => {
-    const apiKey = import.meta.env.VITE_GOOGLE_CLOUD_API_KEY;
-
-    const handleMouseUp = () => {
-      const selectedText = window.getSelection().toString();
-      if (selectedText) {
-        setHighlightedText(selectedText);
-        handleTranslate(selectedText);
-      }
-    };
-
-    const handleTranslate = async (TexttoTranslate) => {
-      try {
-        const { translatedText, detectedLanguage } = await translateText(
-          TexttoTranslate,
-          apiKey
-        );
-        setTranslation(translatedText);
-        setLanguageCode(detectedLanguage);
-      } catch (error) {
-        setTranslation("Failed to translate");
-      }
-    };
-
-    const language = getLanguageName(languageCode);
-
-    return (
-      <div className="size-full pl-2 w-9/12 max-w-74ch flex flex-col place-items-center place-content-center">
-        <Button
-          className="m-3 w-4/5"
-          variant="outline"
-          onClick={() => setText("")}
-        >
-          Clear textbox
-        </Button>
-        <p>Language: {language}</p>
-        <textarea
-          spellCheck={false}
-          onMouseUp={handleMouseUp}
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder="Add text here..."
-          className={cn(
-            "text-xs sm:text-sm md:text-md lg:text-lg size-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-            className
-          )}
-          ref={ref}
-          {...props}
-        />
-      </div>
-    );
-  }
-);
-
+const Textarea = React.forwardRef(({ className, ...props }, ref) => {
+  return (
+    <textarea
+      className={cn(
+        "text-xs sm:text-sm md:text-md lg:text-lg size-full  flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm",
+        className
+      )}
+      ref={ref}
+      {...props}
+    />
+  );
+});
 Textarea.displayName = "Textarea";
 
 export { Textarea };
