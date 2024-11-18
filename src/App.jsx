@@ -2,7 +2,7 @@
 // TODO fix nav bar in small screens
 // TODO Add acessibility features
 // TODO useReducer
-// TODO colouful dark mode
+// TODO colorful dark mode
 // TODO look at SVG for logo
 
 import { useState } from "react";

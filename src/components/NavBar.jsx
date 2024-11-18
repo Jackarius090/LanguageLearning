@@ -20,11 +20,13 @@ import { useTextStore } from "@/lib/textStore";
 const NavBar = () => {
   const setValue = useTextStore((state) => state.setValue);
   return (
-    <div className="lg:m-6 lg:ml-48">
+    <div className="my-2 md:mx-20 lg:m-4 lg:ml-40">
       <NavigationMenu>
         <NavigationMenuList className="flex justify-center flex-wrap">
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Sample texts</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="text-sm md:text-base lg:text-lg">
+              Sample texts
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li>
@@ -96,7 +98,9 @@ const NavBar = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="text-sm md:text-md lg:text-lg">
+              Components
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                 <SimpleListItem title="Alert Dialog">
@@ -123,7 +127,9 @@ const NavBar = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+            <NavigationMenuTrigger className="text-sm md:text-md lg:text-lg">
+              Components
+            </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                 <SimpleListItem title="Scroll Area">
