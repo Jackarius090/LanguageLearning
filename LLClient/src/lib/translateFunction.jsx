@@ -8,8 +8,9 @@ export const translateText = async (TexttoTranslate) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Referer": window.location.origin
       },
+      credentials: 'include',
+      referrerPolicy: 'strict-origin-when-cross-origin',
       body: JSON.stringify({ text: TexttoTranslate }),
     });
 

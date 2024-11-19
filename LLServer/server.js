@@ -10,6 +10,7 @@ const app = express();
 app.use(
   helmet({
     contentSecurityPolicy: false,
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" }
   })
 );
 
@@ -18,12 +19,12 @@ app.use(
     origin: [
       "https://languagelearning.fly.dev",
       ...(process.env.NODE_ENV === "development"
-        ? ["http://localhost:5173"]
+        ? ["http://localhost:5173", "http://localhost:8080"]
         : []),
     ],
     methods: ["POST"],
     credentials: true,
-    exposedHeaders: ['*', 'Authorization']
+    exposedHeaders: ['*']
   })
 );
 
