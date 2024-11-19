@@ -43,7 +43,7 @@ const NavBar = () => {
                   <div className="flex items-center place-content-center h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                     <img
                       className="dark:brightness-75 size-12 mb-5"
-                      src="public/favicon-192x192.png"
+                      src="public/logo.svg"
                       alt=""
                     />
                     <div className="text-lg font-medium">

@@ -2,22 +2,24 @@ import { useState, useEffect } from "react";
 import { Switch } from "./ui/Switch";
 
 function ThemeSwitch() {
-  const [darkMode, setDarkMode] = useState(
-    JSON.parse(localStorage.getItem("darkMode")) || false
-  );
-
-  const [colorMode, setColorMode] = useState(
-    JSON.parse(localStorage.getItem("colorMode")) || false
-  );
+  const [darkMode, setDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem("darkMode") === "true";
+    return savedTheme;
+  });
+  
+  const [colorMode, setColorMode] = useState(() => {
+    const savedColorMode = localStorage.getItem("colorMode") === "true";
+    return savedColorMode;
+  });
 
   useEffect(() => {
-    document.documentElement.classList.toggle("dark");
-    localStorage.setItem("darkMode", darkMode);
+    document.documentElement.classList.toggle("dark", darkMode);
+    localStorage.setItem("darkMode", darkMode.toString());
   }, [darkMode]);
 
   useEffect(() => {
-    document.documentElement.classList.toggle("colorful");
-    localStorage.setItem("colorMode", colorMode);
+    document.documentElement.classList.toggle("colorful", colorMode);
+    localStorage.setItem("colorMode", colorMode.toString());
   }, [colorMode]);
 
   return (
@@ -30,8 +32,9 @@ function ThemeSwitch() {
         </label>
         <Switch
           id="dark-mode-switch"
+          checked={darkMode}
           storageKey="darkMode"
-          onClick={() => setDarkMode(!darkMode)}
+          onCheckedChange={() => setDarkMode(!darkMode)}
         />
       </div>
       <div className="flex items-center space-x-2">
@@ -42,8 +45,9 @@ function ThemeSwitch() {
         </label>
         <Switch
           id="colorful-mode-switch"
+          checked={colorMode}
           storageKey="colorMode"
-          onClick={() => setColorMode(!colorMode)}
+          onCheckedChange={() => setColorMode(!colorMode)}
         />
       </div>
     </div>

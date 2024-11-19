@@ -2,7 +2,7 @@
 EXTENSION NAME : linecount
 EXTENSION VERSION : 0.1.7
 -------------------------------------------------------------------------------
-count time : 2024-11-16 21:59:50
+count time : 2024-11-16 21:59:50w
 count workspace : /Users/jackdickinson/repos/LanguageLearning
 total files : 35
 total code lines : 8314

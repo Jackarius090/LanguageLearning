@@ -18,7 +18,6 @@ export default function TextWindow() {
           setHighlightedText={setHighlightedText}
           setTranslation={setTranslation}
         />
-        {/* <div className="flex-col"> */}
         <HighlightedText
           highlightedText={highlightedText}
           translation={translation}

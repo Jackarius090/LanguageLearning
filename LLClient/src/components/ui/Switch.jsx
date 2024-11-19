@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 const Switch = React.forwardRef(
   ({ className, id, storageKey, ...props }, ref) => {
     const [isChecked, setIsChecked] = React.useState(() => {
-      // Initialize from localStorage
-      return JSON.parse(localStorage.getItem(storageKey)) || false;
+      const storedValue = localStorage.getItem(storageKey);
+      return storedValue !== null ? JSON.parse(storedValue) : false;
     });
 
     React.useEffect(() => {
