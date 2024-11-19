@@ -1,20 +1,61 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const rateLimit = require("express-rate-limit");
+const helmet = require("helmet");
+const path = require("path");
 
 const app = express();
 
-// Middleware
-app.use(cors());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+
+app.use(
+  cors({
+    origin: [
+      "https://languagelearning.fly.dev",
+      ...(process.env.NODE_ENV === "development"
+        ? ["http://localhost:5173"]
+        : []),
+    ],
+    methods: ["POST"],
+    credentials: true,
+    exposedHeaders: ['*', 'Authorization']
+  })
+);
+
 app.use(express.json());
 
-// Routes
-app.post("/api/translate", async (req, res) => {
+app.use(express.static(path.join(__dirname, "dist")));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50, // limit each IP to 100 requests per windowMs
+});
+
+app.use("/api/", limiter);
+
+// Add rate limiting for translation endpoint specifically
+const translationLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50, // Adjust this number based on your needs
+  message: { error: "Too many translation requests, please try again later" },
+});
+
+app.post("/api/translate", translationLimiter, async (req, res) => {
   try {
     const { text } = req.body;
 
-    if (!text) {
-      return res.status(400).json({ error: "Text is required" });
+    if (!text || typeof text !== "string") {
+      return res.status(400).json({ error: "Invalid input" });
+    }
+
+    if (text.length > 200) {
+      return res.status(400).json({ error: "Text too long" });
     }
 
     const apiKey = process.env.GOOGLE_CLOUD_API_KEY;
@@ -61,6 +102,11 @@ app.post("/api/translate", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("Server running on port 3000");
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
+});
+
+const port = process.env.PORT || 8080;
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Server running on port ${port}`);
 });
