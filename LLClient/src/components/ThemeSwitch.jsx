@@ -6,7 +6,7 @@ function ThemeSwitch() {
     const savedTheme = localStorage.getItem("darkMode") === "true";
     return savedTheme;
   });
-  
+
   const [colorMode, setColorMode] = useState(() => {
     const savedColorMode = localStorage.getItem("colorMode") === "true";
     return savedColorMode;

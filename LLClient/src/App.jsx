@@ -6,7 +6,6 @@
 // TODO look at SVG for logo
 // TODO change colors of themes
 
-import { useState } from "react";
 import NavBar from "./components/NavBar";
 import Banner from "./components/Banner";
 import TextWindow from "./components/TextWindow";
