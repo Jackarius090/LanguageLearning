@@ -12,7 +12,6 @@ const TextBox = ({
   setTranslation,
   ...props
 }) => {
-  const apiKey = import.meta.env.VITE_GOOGLE_CLOUD_API_KEY;
   const { setValue, value } = useTextStore();
 
   const handleMouseUp = () => {
@@ -26,8 +25,7 @@ const TextBox = ({
   const handleTranslate = async (TexttoTranslate) => {
     try {
       const { translatedText, detectedLanguage } = await translateText(
-        TexttoTranslate,
-        apiKey
+        TexttoTranslate
       );
       setTranslation(translatedText);
       setLanguageCode(detectedLanguage);
@@ -36,6 +34,7 @@ const TextBox = ({
       setTranslation("Failed to translate");
     }
   };
+  
 
   const language = getLanguageName(languageCode);
 

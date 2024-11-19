@@ -22,6 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
+.vite/
 .env
 config/*.json
+# Backend
+/LLServer/node_modules
+/LLServer/.env

@@ -1,32 +1,25 @@
-export const translateText = async (TexttoTranslate, apiKey) => {
+export const translateText = async (TexttoTranslate) => {
   try {
-    const response = await fetch(
-      `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          q: TexttoTranslate,
-          target: "en",
-        }),
-      }
-    );
+    const response = await fetch('http://localhost:3000/api/translate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: TexttoTranslate }),
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to translate');
+    }
 
     const data = await response.json();
-
-    if (data && data.data && data.data.translations) {
-      return {
-        translatedText: data.data.translations[0].translatedText,
-        detectedLanguage: data.data.translations[0].detectedSourceLanguage,
-      };
-    } else {
-      throw new Error("Error translating text");
-    }
+    return {
+      translatedText: data.translatedText,
+      detectedLanguage: data.detectedLanguage,
+    };
   } catch (error) {
-    console.error("Error with translation API:", error);
-    throw new Error("Failed to translate");
+    console.error('Error with translation API:', error);
+    throw error;
   }
 };
-  
