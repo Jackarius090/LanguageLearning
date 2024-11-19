@@ -98,7 +98,7 @@ const NavBar = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-sm md:text-md lg:text-lg">
+            <NavigationMenuTrigger className="text-sm md:text-base lg:text-lg">
               Components
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -127,7 +127,7 @@ const NavBar = () => {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-sm md:text-md lg:text-lg">
+            <NavigationMenuTrigger className="text-sm md:text-base lg:text-lg">
               Components
             </NavigationMenuTrigger>
             <NavigationMenuContent>

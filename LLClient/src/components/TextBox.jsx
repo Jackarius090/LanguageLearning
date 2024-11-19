@@ -29,12 +29,11 @@ const TextBox = ({
       );
       setTranslation(translatedText);
       setLanguageCode(detectedLanguage);
-      console.log(detectedLanguage);
     } catch (error) {
       setTranslation("Failed to translate");
+      console.log(error);
     }
   };
-  
 
   const language = getLanguageName(languageCode);
 
@@ -50,6 +49,7 @@ const TextBox = ({
       <p>Language: {language}</p>
 
       <Textarea
+        id="textbox"
         spellCheck={false}
         onMouseUp={handleMouseUp}
         value={value}
