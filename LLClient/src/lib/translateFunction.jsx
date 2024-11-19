@@ -8,9 +8,10 @@ export const translateText = async (TexttoTranslate) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Referer": window.location.origin || "https://languagelearning.fly.dev"
       },
       credentials: 'include',
-      referrerPolicy: 'strict-origin-when-cross-origin',
+      referrerPolicy: 'origin',
       body: JSON.stringify({ text: TexttoTranslate }),
     });
 

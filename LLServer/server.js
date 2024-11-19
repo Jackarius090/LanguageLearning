@@ -71,6 +71,7 @@ app.post("/api/translate", translationLimiter, async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Referer": req.headers.referer || "https://languagelearning.fly.dev"
         },
         body: JSON.stringify({
           q: text,
