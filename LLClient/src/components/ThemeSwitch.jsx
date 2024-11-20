@@ -23,8 +23,8 @@ function ThemeSwitch() {
   }, [colorMode]);
 
   return (
-    <div className="flex flex-col space-y-4">
-      <div className="flex items-center space-x-2">
+    <div className="flex flex-col place-items-end space-y-4 mr-4">
+      <div className="flex space-x-2">
         <label htmlFor="dark-mode">
           <span className="text-xs sm:text-sm md:text-md lg:text-lg">
             Dark mode
@@ -37,9 +37,9 @@ function ThemeSwitch() {
           onCheckedChange={() => setDarkMode(!darkMode)}
         />
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex space-x-2">
         <label htmlFor="colorful-mode">
-          <span className="text-xs sm:text-sm md:text-md lg:text-lg">
+          <span className="text-nowrap text-xs sm:text-sm md:text-md lg:text-lg">
             Colorful mode
           </span>
         </label>

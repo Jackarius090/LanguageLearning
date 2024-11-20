@@ -10,7 +10,7 @@ const app = express();
 app.use(
   helmet({
     contentSecurityPolicy: false,
-    referrerPolicy: { policy: "strict-origin-when-cross-origin" }
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
   })
 );
 
@@ -18,13 +18,12 @@ app.use(
   cors({
     origin: [
       "https://languagelearning.fly.dev",
-      ...(process.env.NODE_ENV === "development"
-        ? ["http://localhost:5173", "http://localhost:8080"]
-        : []),
+      "http://localhost:5173",
+      "http://localhost:8080",
     ],
-    methods: ["POST"],
+    methods: ["POST", "OPTIONS"],
     credentials: true,
-    exposedHeaders: ['*']
+    exposedHeaders: ["*"],
   })
 );
 
@@ -71,7 +70,7 @@ app.post("/api/translate", translationLimiter, async (req, res) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Referer": req.headers.referer || "https://languagelearning.fly.dev"
+          Referer: req.headers.referer || "https://languagelearning.fly.dev",
         },
         body: JSON.stringify({
           q: text,

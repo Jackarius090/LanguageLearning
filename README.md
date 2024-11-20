@@ -1,6 +1,6 @@
 # LanguageLearning
 
-Hey this is my language learning app for helping to read foreign texts. It can help you to learn a language by providing a fast translation to any word or sentence you don't understand.
+Hey this is my language learning app for helping to read foreign texts. It can help you to learn a language by providing a fast translation to any word or sentence you don't understand.w
 
 Try it out [HERE](https://languagelearning.fly.dev/)!
 

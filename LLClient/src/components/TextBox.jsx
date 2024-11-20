@@ -4,23 +4,54 @@ import { translateText } from "@/lib/translateFunction";
 import { getLanguageName } from "@/lib/utils";
 import { useTextStore } from "@/lib/textStore";
 import { Textarea } from "./ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const TextBox = ({
   setHighlightedText,
   languageCode,
   setLanguageCode,
   setTranslation,
-  ...props
 }) => {
+  const { toast } = useToast();
+
   const { setValue, value } = useTextStore();
 
   const handleMouseUp = () => {
     const selectedText = window.getSelection().toString();
     if (selectedText) {
-      setHighlightedText(selectedText);
-      handleTranslate(selectedText);
+      const wordCount = selectedText.trim().split(/\s+/).length;
+      if (wordCount <= 20) {
+        setHighlightedText(selectedText);
+        handleTranslate(selectedText);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Too many words!",
+          description: "Please select less than 20 words at a time",
+        });
+        setHighlightedText(selectedText);
+        setTranslation("Please select less than 20 words at a time");
+      }
     }
   };
+
+  const adjustHeight = (element) => {
+    element.style.height = "300px";
+    const newHeight = Math.max(300, element.scrollHeight);
+    element.style.height = `${newHeight}px`;
+  };
+
+  const handleChange = (e) => {
+    setValue(e.target.value);
+    adjustHeight(e.target);
+  };
+
+  React.useEffect(() => {
+    const textarea = document.getElementById("textbox");
+    if (textarea) {
+      adjustHeight(textarea);
+    }
+  }, [value]);
 
   const handleTranslate = async (TexttoTranslate) => {
     try {
@@ -30,7 +61,11 @@ const TextBox = ({
       setTranslation(translatedText);
       setLanguageCode(detectedLanguage);
     } catch (error) {
-      setTranslation("Failed to translate");
+      if (error.message === "Text exceeds 20 words limit") {
+        setTranslation("Please select less than 20 words at a time");
+      } else {
+        setTranslation("Failed to translate");
+      }
       console.log(error);
     }
   };
@@ -38,26 +73,31 @@ const TextBox = ({
   const language = getLanguageName(languageCode);
 
   return (
-    <div className="size-full pl-2 w-9/12 max-w-74ch flex flex-col place-items-center place-content-center">
+    <div className="w-9/12 max-w-74ch flex flex-col">
       <Button
-        className="m-3 w-4/5"
+        className="m-3 w-4/5 mx-auto"
         variant="outline"
         onClick={() => setValue("")}
       >
         Clear textbox
       </Button>
-      <p>Language: {language}</p>
+      <p className="text-center text-xs sm:text-sm md:text-md">
+        Language: {language}
+      </p>
 
       <Textarea
         id="textbox"
         spellCheck={false}
+        style={{
+          minHeight: "100vh",
+          height: "auto",
+          resize: "none",
+          overflow: "hidden",
+        }}
         onMouseUp={handleMouseUp}
         value={value}
-        onChange={(e) => setValue(e.target.value)}
+        onChange={handleChange}
         placeholder="Add text here..."
-        className={
-          "text-xs sm:text-sm md:text-md lg:text-lg size-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-        }
       />
     </div>
   );

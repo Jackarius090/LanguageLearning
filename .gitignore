@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .vite/
+LLClient/.env
+LLClient/.env.production
 .env
 config/*.json
 # Backend

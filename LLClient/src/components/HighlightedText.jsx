@@ -3,7 +3,7 @@ import GptWindow from "./GptWindow";
 
 const HighlightedText = ({ highlightedText, translation }) => {
   return (
-    <div className="flex-1 px-2 pt-3">
+    <div className="flex-1 pl-2 pt-3">
       <div className="relative">
         <h1 className="text-sm md:text-lg lg:text-lg xl:text-xl 2xl:text-2xl absolute -top-9">
           Definition:

@@ -20,11 +20,11 @@ import { useTextStore } from "@/lib/textStore";
 const NavBar = () => {
   const setValue = useTextStore((state) => state.setValue);
   return (
-    <div className="my-2 md:mx-20 lg:m-4 lg:ml-40">
+    <div className="my-2 mx-6 md:mx-20 lg:m-4 lg:ml-40">
       <NavigationMenu>
-        <NavigationMenuList className="flex justify-center flex-wrap">
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-sm md:text-base lg:text-lg">
+        <NavigationMenuList className="flex justify-center flex-wrap gap-4">
+          <NavigationMenuItem className="px-0 mx-0">
+            <NavigationMenuTrigger className="px-0 mx-0 text-xs md:text-base lg:text-lg">
               Sample texts
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -91,14 +91,11 @@ const NavBar = () => {
                     </div>
                   </div>
                 </li>
-                <SimpleListItem title="Typography Styles">
-                  Well-designed typography for headings, paragraphs, and more.
-                </SimpleListItem>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-sm md:text-base lg:text-lg">
+          <NavigationMenuItem className="px-0 mx-0">
+            <NavigationMenuTrigger className="px-0 mx-0 text-xs md:text-base lg:text-lg">
               Components
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -126,8 +123,8 @@ const NavBar = () => {
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-sm md:text-base lg:text-lg">
+          <NavigationMenuItem className="px-0 mx-0">
+            <NavigationMenuTrigger className="px-0 mx-0 text-xs md:text-base lg:text-lg">
               Components
             </NavigationMenuTrigger>
             <NavigationMenuContent>

@@ -3,15 +3,15 @@ import TextBox from "@/components/TextBox";
 import { useState } from "react";
 
 export default function TextWindow() {
-  const [languageCode, setLanguageCode] = useState(""); // Holds the translated text
+  const [languageCode, setLanguageCode] = useState("");
   const [highlightedText, setHighlightedText] = useState(
     "Highlight a word to see its definition!"
   );
   const [translation, setTranslation] = useState(""); // Holds the translated text
 
   return (
-    <div className="flex pt-4 mb-4 h-screen border-2">
-      <div className="flex size-full pt-5 md:p-5">
+    <div className="flex mb-4 mx-1 md:mx-6 lg:mx-16 xl:mx-24">
+      <div className="flex w-full pt-5 md:p-5">
         <TextBox
           setLanguageCode={setLanguageCode}
           languageCode={languageCode}
@@ -22,8 +22,6 @@ export default function TextWindow() {
           highlightedText={highlightedText}
           translation={translation}
         />
-
-        {/* </div> */}
       </div>
     </div>
   );
