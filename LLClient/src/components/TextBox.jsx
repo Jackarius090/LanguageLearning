@@ -97,7 +97,7 @@ const TextBox = ({
         onMouseUp={handleMouseUp}
         value={value}
         onChange={handleChange}
-        placeholder="Add text here..."
+        placeholder="Add text here... Try adding a sample text from the menu above"
       />
     </div>
   );

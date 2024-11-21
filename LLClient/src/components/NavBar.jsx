@@ -16,29 +16,32 @@ import {
   frenchText,
 } from "@/lib/sampleTexts";
 import { useTextStore } from "@/lib/textStore";
+import { useToast } from "@/hooks/use-toast";
 
 const NavBar = () => {
   const setValue = useTextStore((state) => state.setValue);
+  const { toast } = useToast();
+  const comingSoonToast = () => {
+    toast({
+      title: "Not working yet!",
+      description: "Coming soon!",
+    });
+  };
+
   return (
-    <div className="my-2 mx-6 md:mx-20 lg:m-4 lg:ml-40">
+    <div className="my-2 mx-3 sm:ml-20 md:mx-20 md:ml-32 lg:m-4 lg:ml-48">
       <NavigationMenu>
-        <NavigationMenuList className="flex justify-center flex-wrap gap-4">
-          <NavigationMenuItem className="px-0 mx-0">
-            <NavigationMenuTrigger className="px-0 mx-0 text-xs md:text-base lg:text-lg">
+        <NavigationMenuList className="flex justify-center flex-wrap md:gap-4">
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-xs md:text-base lg:text-lg px-0 sm:px-2 md:px-4">
               Sample texts
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <li>
-                  <div
-                    onClick={() => setValue(danishText)}
-                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                  >
-                    <div className="text-sm font-medium leading-none">
-                      🇩🇰 Danish text
-                    </div>
-                  </div>
-                </li>
+                <SimpleListItem
+                  title="🇩🇰 Danish text"
+                  onClick={() => setValue(danishText)}
+                />
                 <li className="row-span-3">
                   <div className="flex items-center place-content-center h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
                     <img
@@ -51,87 +54,78 @@ const NavBar = () => {
                     </div>
                   </div>
                 </li>
-                <li>
-                  <div
-                    onClick={() => setValue(chineseText)}
-                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                  >
-                    <div className="text-sm font-medium leading-none">
-                      Chinese text
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div
-                    onClick={() => setValue(italianText)}
-                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                  >
-                    <div className="text-sm font-medium leading-none">
-                      Italian text
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div
-                    onClick={() => setValue(germanText)}
-                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                  >
-                    <div className="text-sm font-medium leading-none">
-                      German text
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div
-                    onClick={() => setValue(frenchText)}
-                    className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                  >
-                    <div className="text-sm font-medium leading-none">
-                      French text
-                    </div>
-                  </div>
-                </li>
+                <SimpleListItem
+                  title="Mandarin text"
+                  onClick={() => setValue(chineseText)}
+                />
+                <SimpleListItem
+                  title="🇮🇹 Italian text"
+                  onClick={() => setValue(italianText)}
+                />
+                <SimpleListItem
+                  title="🇩🇪 German text"
+                  onClick={() => setValue(germanText)}
+                />
+                <SimpleListItem
+                  title="🇫🇷 French text"
+                  onClick={() => setValue(frenchText)}
+                />
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem className="px-0 mx-0">
-            <NavigationMenuTrigger className="px-0 mx-0 text-xs md:text-base lg:text-lg">
-              Components
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-xs md:text-base lg:text-lg px-0 md:px-2 lg:px-4">
+              Future features
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                <SimpleListItem title="Alert Dialog">
-                  A modal dialog that interrupts the user with important
-                  content.
+                <SimpleListItem onClick={comingSoonToast} title="Dictionary">
+                  Dictionary definitions of words stored in a database
                 </SimpleListItem>
-                <SimpleListItem title="Hover Card">
-                  Preview content available behind a link on hover.
+                <SimpleListItem
+                  onClick={comingSoonToast}
+                  title="Personal accounts"
+                >
+                  Personal accounts with your saved words and settings
                 </SimpleListItem>
-                <SimpleListItem title="Progress">
-                  Displays task completion as a progress bar.
+                <SimpleListItem onClick={comingSoonToast} title="Hardest words">
+                  A personal list of words you often forget
                 </SimpleListItem>
-                <SimpleListItem title="Scroll Area">
-                  Visually separates content using scrollable areas.
+                <SimpleListItem onClick={comingSoonToast} title="Pronunciation">
+                  Pronunciation sound clips for each word
                 </SimpleListItem>
-                <SimpleListItem title="Tabs">
-                  Organized sections of content displayed one at a time.
+                <SimpleListItem
+                  onClick={comingSoonToast}
+                  title="Accessibility features"
+                >
+                  Accessibility features for better reading experience
                 </SimpleListItem>
-                <SimpleListItem title="Tooltip">
-                  Displays additional information when an element is focused or
-                  hovered.
+                <SimpleListItem
+                  onClick={comingSoonToast}
+                  title="ChatGPT integration"
+                >
+                  ChatGPT integration for more advanced language learning
                 </SimpleListItem>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
-          <NavigationMenuItem className="px-0 mx-0">
-            <NavigationMenuTrigger className="px-0 mx-0 text-xs md:text-base lg:text-lg">
-              Components
+          <NavigationMenuItem>
+            <NavigationMenuTrigger className="text-xs md:text-base lg:text-lg px-0 sm:px-2 md:px-4">
+              About the project
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                <SimpleListItem title="Scroll Area">
-                  Visually separates content using scrollable areas.
+                <SimpleListItem
+                  title="Github Repo"
+                  href="https://github.com/Jackarius090/LanguageLearning"
+                >
+                  Go check out the Github repo here.
+                  github.com/Jackarius090/LanguageLearning
                 </SimpleListItem>
+                <p className="text-sm">
+                  This project is a work in progress. If you have any ideas for
+                  features, please let me know!
+                </p>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
@@ -143,15 +137,19 @@ const NavBar = () => {
 
 export default NavBar;
 
-const SimpleListItem = ({ title, children }) => {
+const SimpleListItem = ({ title, children, onClick, href }) => {
   return (
     <li>
-      <div className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={onClick}
+        className="block select-none space-y-1 rounded-md border border-input p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+      >
         <div className="text-sm font-medium leading-none">{title}</div>
-        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-          {children}
-        </p>
-      </div>
+        <p className="line-clamp-2 text-sm leading-snug">{children}</p>
+      </a>
     </li>
   );
 };

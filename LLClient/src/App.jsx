@@ -2,7 +2,6 @@
 // TODO fix nav bar in small screens
 // TODO Add acessibility features
 // TODO useReducer
-// TODO colorful dark mode
 // TODO look at SVG for logo
 // TODO change colors of themes
 // TODO pronunciation sound clips

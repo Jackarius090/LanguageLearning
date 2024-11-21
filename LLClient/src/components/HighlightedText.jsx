@@ -9,7 +9,7 @@ const HighlightedText = ({ highlightedText, translation }) => {
           Definition:
         </h1>
       </div>
-      <div className="pt-2 border-2 rounded-md text-xs sm:text-sm md:text-md">
+      <div className="pt-2 border border-input rounded-md bg-background px-3 py-2 text-xs sm:text-sm md:text-md">
         <p>
           Original:{" "}
           {highlightedText ? highlightedText : "No text highlighted yet."}
@@ -19,6 +19,10 @@ const HighlightedText = ({ highlightedText, translation }) => {
         </p>
       </div>
       <GptWindow />
+      <p>
+        Add some text in the textbox, then highlight a word you don't understand
+        to see a translation.
+      </p>
     </div>
   );
 };

@@ -14,5 +14,5 @@ RUN npm install --production
 COPY LLServer/ .
 COPY --from=client-builder /app/client/dist ./dist
 
-EXPOSE 8080
+EXPOSE 8080 
 CMD ["npm", "start"]
