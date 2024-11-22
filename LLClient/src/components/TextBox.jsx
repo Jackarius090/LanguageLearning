@@ -26,7 +26,7 @@ const TextBox = ({
       } else {
         toast({
           variant: "destructive",
-          title: "Too many words!",
+          title: `${wordCount} words! That's too many!`,
           description: "Please select less than 20 words at a time",
         });
         setHighlightedText(selectedText);
