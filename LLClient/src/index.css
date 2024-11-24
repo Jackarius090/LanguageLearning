@@ -69,15 +69,19 @@
     --background: 192 70% 43%;
     --primary: 32, 100%, 49%;
     --primary-foreground: 210 20% 98%;
+    --secondary: 18 40% 90%;
     --accent: 192 71% 35%;
     --accent-foreground: 220.9 39.3% 11%;
     --popover: 192 40% 60%;
+    --input: 192 40% 43%;
   }
 
   .colorful.dark {
     --background: 18 95% 58%;
+    --secondary: 18 40% 90%;
     --accent: 15 88% 52%;
     --popover: 18 70% 60%;
+    --input: 40 60% 58%;
   }
 }
 
