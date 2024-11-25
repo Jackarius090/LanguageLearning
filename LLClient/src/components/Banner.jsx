@@ -8,7 +8,7 @@ function Banner() {
         src="/logo.svg"
         className="dark:brightness-75 w-16 sm:w-20 md:w-24 lg:w-28 xl:w-32 2xl:w-36 mx-2.5 md:mx-10 border-solid border-2 rounded-xl border-white"
       ></img>
-      <h2 className="bg-gradient-to-r from-blue-400 to-purple-600 bg-clip-text text-transparent px-1 w-9/12 text-2xl md:text-3xl lg:text-4xl font-bold">
+      <h2 className="bg-gradient-to-r from-chart-1 to-chart-3 bg-clip-text text-transparent px-1 w-9/12 text-2xl md:text-3xl lg:text-4xl font-bold">
         Language Learning App
       </h2>
       <ThemeSwitch />
