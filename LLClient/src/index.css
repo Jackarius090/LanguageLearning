@@ -15,6 +15,8 @@
   :root {
     --background: 140 50% 98%;
     --foreground: 224 71.4% 4.1%;
+    --gradient1: 204, 85%, 53%;
+    --gradient2: 220, 14%, 95%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 10 10% 90%;
