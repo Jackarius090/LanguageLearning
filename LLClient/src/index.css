@@ -16,7 +16,6 @@
     --background: 140 50% 98%;
     --foreground: 224 71.4% 4.1%;
     --gradient1: 204, 85%, 53%;
-    --gradient2: 220, 14%, 95%;
     --card: 0 0% 100%;
     --card-foreground: 224 71.4% 4.1%;
     --popover: 10 10% 90%;
@@ -69,7 +68,8 @@
   }
   .colorful {
     --background: 192 70% 43%;
-    --primary: 32, 100%, 49%;
+    --primary: 20 100% 49%;
+    --gradient1: 12 70% 43%;
     --primary-foreground: 210 20% 98%;
     --muted-foreground: 220 8.9% 25.1%;
     --secondary: 18 40% 90%;
@@ -81,10 +81,12 @@
 
   .colorful.dark {
     --background: 18 95% 58%;
-    --secondary: 18 40% 90%;
-    --accent: 15 88% 52%;
+    --gradient1: 192 70% 43%;
+    --primary: 0, 0, 0, 0.83;
+    --secondary: 20 40% 90%;
+    --accent: 10 88% 52%;
     --popover: 18 70% 60%;
-    --input: 40 60% 58%;
+    --input: 10 60% 58%;
   }
 }
 

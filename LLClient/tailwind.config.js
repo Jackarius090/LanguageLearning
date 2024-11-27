@@ -54,8 +54,6 @@ export default {
           5: "hsl(var(--chart-5))",
         },
         gradient1: "hsl(var(--gradient1))",
-        gradient2: "hsl(var(--gradient2))",
-        gradient3: "hsl(var(--gradient3))",
       },
     },
   },
