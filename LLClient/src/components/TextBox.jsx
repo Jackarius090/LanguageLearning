@@ -5,6 +5,7 @@ import { getLanguageName } from "@/lib/utils";
 import { useTextStore } from "@/lib/textStore";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { FormatTextBox } from "./FormatTextBox";
 
 const TextBox = ({
   setHighlightedText,
@@ -74,13 +75,16 @@ const TextBox = ({
 
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
-      <Button
-        className="m-3 w-4/5 mx-auto"
-        variant="outline"
-        onClick={() => setValue("")}
-      >
-        Clear textbox
-      </Button>
+      <div>
+        <FormatTextBox className="" />
+        <Button
+          className="m-3 w-1/5 mx-4"
+          variant="outline"
+          onClick={() => setValue("")}
+        >
+          Clear textbox
+        </Button>
+      </div>
       <p className="text-center text-xs sm:text-sm md:text-md">
         Language: {language}
       </p>
