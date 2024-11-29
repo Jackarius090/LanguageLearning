@@ -1,30 +1,40 @@
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-  SelectGroup,
-  SelectLabel,
-} from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { useTextSizeStore } from "@/lib/textSizeStore";
 
 export function EditBoxTextSize() {
+  const textSize = useTextSizeStore((state) => state.value);
+  const setValue = useTextSizeStore((state) => state.setValue);
+  const decreaseTextSize = () => {
+    setValue(textSize - 1);
+  };
+
+  const increaseTextSize = () => {
+    setValue(textSize + 1);
+  };
+
   return (
-    <Select>
-      <SelectTrigger className="w-4/5">
-        <SelectValue placeholder="Select a timezone" />
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectLabel>North America</SelectLabel>
-          <SelectItem value="est">Eastern Standard Time (EST)</SelectItem>
-          <SelectItem value="cst">Central Standard Time (CST)</SelectItem>
-          <SelectItem value="mst">Mountain Standard Time (MST)</SelectItem>
-          <SelectItem value="pst">Pacific Standard Time (PST)</SelectItem>
-          <SelectItem value="akst">Alaska Standard Time (AKST)</SelectItem>
-          <SelectItem value="hst">Hawaii Standard Time (HST)</SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div className="flex flex-row">
+      <Button
+        onClick={decreaseTextSize}
+        id="decreasetextsize"
+        variant="outline"
+        size="icon"
+      >
+        <ChevronLeft />
+      </Button>
+      <Badge className="border-none" variant="outline">
+        {textSize}
+      </Badge>
+      <Button
+        onClick={increaseTextSize}
+        id="increasetextsize"
+        variant="outline"
+        size="icon"
+      >
+        <ChevronRight />
+      </Button>
+    </div>
   );
 }

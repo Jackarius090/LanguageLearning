@@ -6,6 +6,7 @@ import { useTextStore } from "@/lib/textStore";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { FormatTextBox } from "./FormatTextBox";
+import { useTextSizeStore } from "@/lib/textSizeStore";
 
 const TextBox = ({
   setHighlightedText,
@@ -72,6 +73,7 @@ const TextBox = ({
   };
 
   const language = getLanguageName(languageCode);
+  const textSize = useTextSizeStore((state) => state.value);
 
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
@@ -90,6 +92,7 @@ const TextBox = ({
       </p>
 
       <Textarea
+        className={`text-${textSize}`}
         id="textbox"
         spellCheck={false}
         style={{
