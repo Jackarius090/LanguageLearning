@@ -3,6 +3,8 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { useTextSizeStore } from "@/lib/textSizeStore";
 
+
+
 export function EditBoxTextSize() {
   const textSize = useTextSizeStore((state) => state.value);
   const setValue = useTextSizeStore((state) => state.setValue);

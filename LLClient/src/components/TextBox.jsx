@@ -92,7 +92,6 @@ const TextBox = ({
       </p>
 
       <Textarea
-        className={`text-${textSize}`}
         id="textbox"
         spellCheck={false}
         style={{
@@ -100,6 +99,7 @@ const TextBox = ({
           height: "auto",
           resize: "none",
           overflow: "hidden",
+          fontSize: `${textSize}px`,
         }}
         onMouseUp={handleMouseUp}
         value={value}
