@@ -7,6 +7,7 @@ import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { FormatTextBox } from "./FormatTextBox";
 import { useTextSizeStore } from "@/lib/textSizeStore";
+import { useTextColorStore } from "@/lib/textColorStore";
 
 const TextBox = ({
   setHighlightedText,
@@ -74,6 +75,7 @@ const TextBox = ({
 
   const language = getLanguageName(languageCode);
   const textSize = useTextSizeStore((state) => state.value);
+  const textColor = useTextColorStore((state) => state.value);
 
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
@@ -100,7 +102,10 @@ const TextBox = ({
           resize: "none",
           overflow: "hidden",
           fontSize: `${textSize}px`,
+          color: textColor,
+          '--placeholder-color': textColor
         }}
+        className="placeholder:[color:var(--placeholder-color)]"
         onMouseUp={handleMouseUp}
         value={value}
         onChange={handleChange}

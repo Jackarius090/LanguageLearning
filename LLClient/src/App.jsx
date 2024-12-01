@@ -36,7 +36,7 @@ function App() {
   }, [toast]);
 
   return (
-    <div className="size-full min-h-screen text-primary">
+    <div className="size-full min-h-screen">
       <NavBar className="flex flex-wrap" />
       <Banner />
       <TextWindow />
