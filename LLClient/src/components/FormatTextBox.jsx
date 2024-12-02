@@ -44,6 +44,7 @@ export function FormatTextBox() {
                   <SelectValue placeholder="Select color" />
                 </SelectTrigger>
                 <SelectContent>
+                  <SelectItem value="primary">Default</SelectItem>
                   <SelectItem value="black">Black</SelectItem>
                   <SelectItem value="white">White</SelectItem>
                   <SelectItem value="blue">Blue</SelectItem>

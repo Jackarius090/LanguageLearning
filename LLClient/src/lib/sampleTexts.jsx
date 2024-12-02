@@ -1,31 +1,12 @@
-export const chineseText = `Drunkenness (2.4) - Hou Baolin (1913-1993) 
-醉酒(片段)
-侯寶林 郭啟如
-侯：真喝醉的人，怕別人說他喝醉了。
-郭：是嗎？
-侯：哎。你看那邊那倆？
-郭：嗯，
-侯：都喝得臉紅脖子粗了，還喝吶。
-郭：還喝吶？ !
-侯：是啊！誰也不服誰。
-郭：哦？
-侯：這個說：“我說你這酒啊，不行，才喝兩杯——就，醉了。”
-郭：是嗎？
-侯：那個說：“你沒醉？你說話——說話，舌頭都短了。”
-郭：他的舌頭也不利索了。
-侯：這個一聽，從口袋掏出一個手電筒，往桌上一放，一按電門，出來一道光柱。
+export const chineseText = `猴子的報恩－阿美族傳說故事 - The Monkey's Repayment - A Taiwanese Folktale
 
-郭：這幹嘛？
-侯：“你沒醉？來，順著我這柱子爬上去。”
-郭：這是根柱子呀？ !
-侯：那位也不含糊。 “別，別來這套，我懂。”
-郭：喲？是嗎？
-侯：“我爬上去？爬一半，你把電門一關，我掉下來？”
+從前，阿美族有一位家裡很窮，心地卻很善良的老爺爺，有一天他從山上的田裡割完草要回家時，突然下起了大雨，老爺爺趕緊跑到大樹下躲雨。雨一直不停地下，老爺爺苦惱著說：「真是糟糕啊！天快黑了，雨還那麼大，該怎麼辦呢？」接著，忽然從草叢裡跑出一群猴子，其中一隻猴子拿著一件皮衣對老爺爺說：「老爺爺，這一件用獸皮做成的外套借你穿，我們家中還準備了豐盛的晚餐，歡迎你到我們家來。」於是，老爺爺便跟著猴子們到深山的家中作客。
 
-Hou Baolin (1913-1993) was one of the most renowned practitioners of xiangsheng comic dialog, or crosstalk, in the 20th century. The modern form of crosstalk dates from the mid-19th century, and along with other forms of quyi, or folk vocal art, experienced a period of great popularity after the founding of the People's Republic. This dialog is extracted from one of the best-known of those performed by Hou Baolin and his partner Guo Qiru in the republic's early years. 
+到猴子們的家時，天色已經暗了，所有的猴子都高興地跑出來迎接老爺爺，也熱情地招待他享用所有的深山美食。吃飯的時候，老爺爺看見一隻老母猴躺在裡面的床上，便問身旁的猴王：「她怎麼了？」猴王說：「她病了好久，什麼草藥都吃了，可是都沒有效。」老爺爺便從袋中取出藥材與煮飯的薪灰揉在一起，拿給猴王：「這藥拿給她吃。」結果老母猴吃完後的第二天，病竟然全都好了，猴王很感激地說：「謝謝你治好了老祖母的病，我有個禮物要送給你。」猴王就把一個圓箕送給老爺爺，並教他使用的方法。
 
-Source: https://public.websites.umich.edu/~dporter/sampler/sampler.html
-`;
+老爺爺帶著圓箕回到家中，家人露出驚訝的表情，這時看到原本只會在地上爬的孫子已經會走路了，趕緊問：「我不是才離開三天嗎？」兒子回答：「是三年。」接著，老爺爺拿出圓箕，放入一點點的米開始篩，結果米一直增加，還多到溢出圓箕來，老爺爺高興地說：「這個圓箕真是太神奇了！」最後整個房子裡全都是滿滿的米。從此以後，老爺爺再也不用辛苦地爬到山上割草耕田，一家人就可以過著溫飽的生活。
+
+from https://biweekly.huayuworld.org/material/324`;
 
 export const danishText =
   "Sønderborg er en lille by i Sønderjylland. Den er ikke særlig stor, men hyggelig. I en gade i Sønderborg står der et stort, gammelt, rødt hus. Der bor Morten sammen med sin gode ven Thomas. De to er flyttet ind i lejligheden i august, lige før det nye semester begyndte. I deres hus bor der også nogle andre personer. På den første etage bor der en matematiklærer med sin kone og deres to småbørn. Påanden etage bor en gammel dame, der engang har arbejdet som frisør. Hun er meget sød og har tit besøg af hendes børnebørn. De kommer gerne forbi hos hende for at høre spændende historier fra den tid mormor var ung og for at fånoget af hendes lækre kage. Morten og Thomas har en hyggelig lejlighed. I køkkenet står der et bord og fire stole. Der sidder de tit sammen med deres venner og spiser. Morten er nemlig meget godt til at lave mad. Thomas kan det ikke så godt, så vasker han alltid op.";

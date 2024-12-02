@@ -89,7 +89,7 @@ const TextBox = ({
           Clear textbox
         </Button>
       </div>
-      <p className="text-center text-xs sm:text-sm md:text-md">
+      <p className="text-center text-xs sm:text-sm md:text-md pb-2">
         Language: {language}
       </p>
 
@@ -103,13 +103,17 @@ const TextBox = ({
           overflow: "hidden",
           fontSize: `${textSize}px`,
           color: textColor,
-          '--placeholder-color': textColor
+          "--placeholder-color": textColor,
         }}
-        className="placeholder:[color:var(--placeholder-color)]"
+        className={
+          textColor === "primary"
+            ? "placeholder-primary"
+            : "placeholder:[color:var(--placeholder-color)]"
+        }
         onMouseUp={handleMouseUp}
         value={value}
         onChange={handleChange}
-        placeholder="Add text here... Try adding a sample text from the menu above"
+        placeholder="Add text here... Try adding a sample text from the menu above or copy in your own text"
       />
     </div>
   );

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
 export const useTextColorStore = create((set) => ({
-  value: "black",
+  value: "primary",
   setValue: (updatedTextColor) => set({ value: updatedTextColor }),
 }));

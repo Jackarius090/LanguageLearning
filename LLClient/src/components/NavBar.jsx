@@ -55,7 +55,7 @@ const NavBar = () => {
                   </div>
                 </li>
                 <SimpleListItem
-                  title="Mandarin text"
+                  title="🇹🇼 Traditional Mandarin text"
                   onClick={() => setValue(chineseText)}
                 />
                 <SimpleListItem
@@ -114,7 +114,16 @@ const NavBar = () => {
               About the project
             </NavigationMenuTrigger>
             <NavigationMenuContent>
-              <ul className="items-center grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              <ul className="items-center grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px]">
+                <p className="block text-sm leading-snug select-none space-y-1 rounded-md border border-input p-3 no-underline outline-none transition-colors">
+                  This app is a simple tool to help you learn new languages. It
+                  allows you to select a word or phrase and quickly get a
+                  translation instead of copying into a translator.
+                  <br />
+                  <br />
+                  It is a work in progress. If you have any ideas for features,
+                  please let me know!
+                </p>
                 <SimpleListItem
                   title="Github Repo"
                   href="https://github.com/Jackarius090/LanguageLearning"
@@ -122,10 +131,6 @@ const NavBar = () => {
                   Go check out the Github repo here.
                   github.com/Jackarius090/LanguageLearning
                 </SimpleListItem>
-                <p className="text-sm">
-                  This project is a work in progress. If you have any ideas for
-                  features, please let me know!
-                </p>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
