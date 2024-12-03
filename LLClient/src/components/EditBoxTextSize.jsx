@@ -1,13 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { useTextSizeStore } from "@/lib/textSizeStore";
-
-
+import { useTextStyleStore } from "@/lib/textStyleStore";
 
 export function EditBoxTextSize() {
-  const textSize = useTextSizeStore((state) => state.value);
-  const setValue = useTextSizeStore((state) => state.setValue);
+  const textSize = useTextStyleStore((state) => state.fontSize);
+  const setValue = useTextStyleStore((state) => state.setFontSize);
   const decreaseTextSize = () => {
     setValue(textSize - 1);
   };
