@@ -14,12 +14,18 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useTextStyleStore } from "@/lib/textStyleStore";
+import { AlignJustify, AlignCenter, AlignLeft, AlignRight } from "lucide-react";
 
 export function FormatTextBox() {
   const textColor = useTextStyleStore((state) => state.color);
   const setTextColor = useTextStyleStore((state) => state.setTextColor);
   const fontFamily = useTextStyleStore((state) => state.fontFamily);
   const setFontFamily = useTextStyleStore((state) => state.setFontFamily);
+  const setTextAlignment = useTextStyleStore((state) => state.setTextAlignment);
+
+  const textAlignment = (alignment) => () => {
+    setTextAlignment(alignment);
+  };
 
   return (
     <Popover>
@@ -79,8 +85,51 @@ export function FormatTextBox() {
                 </SelectContent>
               </Select>
             </div>
+            <div className="flex row items-center gap-2">
+              <Label htmlFor="alignment">Text Alignment</Label>
+              <Button
+                onClick={textAlignment("justify")}
+                id="alignment"
+                variant="outline"
+                size="icon"
+              >
+                <AlignJustify />
+              </Button>
+              <Button
+                onClick={textAlignment("center")}
+                id="alignment"
+                variant="outline"
+                size="icon"
+              >
+                <AlignCenter />
+              </Button>
+              <Button
+                onClick={textAlignment("start")}
+                id="alignment"
+                variant="outline"
+                size="icon"
+              >
+                <AlignLeft />
+              </Button>
+              <Button
+                onClick={textAlignment("end")}
+                id="alignment"
+                variant="outline"
+                size="icon"
+              >
+                <AlignRight />
+              </Button>
+            </div>
             <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="maxHeight">Line spacing</Label>
+              <Label htmlFor="lineSpacing">Line spacing</Label>
+              {/* <Button
+                onClick={change}
+                id="lineSpacing"
+                variant="outline"
+                size="icon"
+              >
+                <ChevronLeft />
+              </Button> */}
             </div>
           </div>
         </div>

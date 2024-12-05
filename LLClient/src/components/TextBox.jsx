@@ -76,6 +76,7 @@ const TextBox = ({
   const textSize = useTextStyleStore((state) => state.fontSize);
   const textColor = useTextStyleStore((state) => state.textColor);
   const textFont = useTextStyleStore((state) => state.fontFamily);
+  const textAlignment = useTextStyleStore((state) => state.textAlignment);
 
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
@@ -97,6 +98,7 @@ const TextBox = ({
         id="textbox"
         spellCheck={false}
         style={{
+          textAlign: textAlignment,
           minHeight: "100vh",
           height: "auto",
           resize: "none",
