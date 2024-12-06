@@ -13,9 +13,9 @@ const TextBox = ({
   languageCode,
   setLanguageCode,
   setTranslation,
+  translation,
 }) => {
   const { toast } = useToast();
-
   const { setValue, value } = useTextStore();
 
   const handleMouseUp = () => {
@@ -24,6 +24,7 @@ const TextBox = ({
       const wordCount = selectedText.trim().split(/\s+/).length;
       if (wordCount <= 20) {
         setHighlightedText(selectedText);
+        setTranslation({ ...translation, loading: true, firstTime: false });
         handleTranslate(selectedText);
       } else {
         toast({
@@ -32,41 +33,31 @@ const TextBox = ({
           description: "Please select less than 20 words at a time",
         });
         setHighlightedText(selectedText);
-        setTranslation("Please select less than 20 words at a time");
+        setTranslation({
+          translation: "Please select less than 20 words at a time",
+        });
       }
     }
   };
 
-  const adjustHeight = (element) => {
-    element.style.height = "300px";
-    const newHeight = Math.max(300, element.scrollHeight);
-    element.style.height = `${newHeight}px`;
-  };
-
   const handleChange = (e) => {
     setValue(e.target.value);
-    adjustHeight(e.target);
   };
-
-  React.useEffect(() => {
-    const textarea = document.getElementById("textbox");
-    if (textarea) {
-      adjustHeight(textarea);
-    }
-  }, [value]);
 
   const handleTranslate = async (TexttoTranslate) => {
     try {
       const { translatedText, detectedLanguage } = await translateText(
         TexttoTranslate
       );
-      setTranslation(translatedText);
+      setTranslation({ translation: translatedText, loading: false });
       setLanguageCode(detectedLanguage);
     } catch (error) {
       if (error.message === "Text exceeds 20 words limit") {
-        setTranslation("Please select less than 20 words at a time");
+        setTranslation({
+          translation: "Please select less than 20 words at a time",
+        });
       } else {
-        setTranslation("Failed to translate");
+        setTranslation({ translation: "Failed to translate" });
       }
       console.log(error);
     }
@@ -95,6 +86,7 @@ const TextBox = ({
       </p>
 
       <Textarea
+        // these should be in tailwind classes haha
         id="textbox"
         spellCheck={false}
         style={{

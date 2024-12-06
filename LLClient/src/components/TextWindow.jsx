@@ -7,7 +7,11 @@ export default function TextWindow() {
   const [highlightedText, setHighlightedText] = useState(
     "Highlight a word to see its definition!"
   );
-  const [translation, setTranslation] = useState(""); // Holds the translated text
+  const [translation, setTranslation] = useState({
+    translation: "",
+    loading: false,
+    firstTime: true,
+  }); // Holds the translated text and loading state
 
   return (
     <div className="flex mb-4 mx-1 md:mx-6 lg:mx-16 xl:mx-24">

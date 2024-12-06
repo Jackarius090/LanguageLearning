@@ -115,16 +115,17 @@ const NavBar = () => {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="items-center grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px]">
-                <p className="block text-sm leading-snug select-none space-y-1 rounded-md border border-input p-3 no-underline outline-none transition-colors">
-                  This app is a simple tool to help you learn new languages. It
-                  allows you to select a word or phrase and quickly get a
-                  translation instead of copying into a translator.
+                <p className="block text-sm text-justify select-none space-y-1 rounded-md border border-input p-3 no-underline outline-none transition-colors">
+                  This app is a simple tool to help you learn new languages.
+                  Select a word or phrase to quickly get a translation instead
+                  of copying into a translator.
                   <br />
                   <br />
                   It is a work in progress. If you have any ideas for features,
                   please let me know!
                 </p>
                 <SimpleListItem
+                  className="border border-outline"
                   title="Github Repo"
                   href="https://github.com/Jackarius090/LanguageLearning"
                 >

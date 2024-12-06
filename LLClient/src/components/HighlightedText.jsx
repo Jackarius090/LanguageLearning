@@ -2,6 +2,16 @@ import React from "react";
 import GptWindow from "./GptWindow";
 
 const HighlightedText = ({ highlightedText, translation }) => {
+  const TranslationTextToRender = () => {
+    if (!translation.firstTime && !translation.translation) {
+      return <p>loading...</p>;
+    } else if (!translation.firstTime && translation.translation) {
+      return <p>Translation: {translation.translation}</p>;
+    } else {
+      return <p>No translation yet</p>;
+    }
+  };
+
   return (
     <div className="flex-1 pl-2 pt-3">
       <div className="relative">
@@ -14,9 +24,7 @@ const HighlightedText = ({ highlightedText, translation }) => {
           Original:{" "}
           {highlightedText ? highlightedText : "No text highlighted yet."}
         </p>
-        <p className="pt-3">
-          Translation: {translation ? translation : "No translation yet."}
-        </p>
+        <TranslationTextToRender />
       </div>
       <GptWindow />
       <p>
