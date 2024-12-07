@@ -6,6 +6,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { EditBoxTextSize } from "@/components/EditBoxTextSize";
+import { Badge } from "@/components/ui/badge";
+
 import {
   Select,
   SelectContent,
@@ -14,7 +16,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useTextStyleStore } from "@/lib/textStyleStore";
-import { AlignJustify, AlignCenter, AlignLeft, AlignRight } from "lucide-react";
+import {
+  AlignJustify,
+  AlignCenter,
+  AlignLeft,
+  AlignRight,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
 export function FormatTextBox() {
   const textColor = useTextStyleStore((state) => state.color);
@@ -22,6 +31,8 @@ export function FormatTextBox() {
   const fontFamily = useTextStyleStore((state) => state.fontFamily);
   const setFontFamily = useTextStyleStore((state) => state.setFontFamily);
   const setTextAlignment = useTextStyleStore((state) => state.setTextAlignment);
+  const setLineHeight = useTextStyleStore((state) => state.setLineHeight);
+  const lineHeight = useTextStyleStore((state) => state.lineHeight);
 
   const textAlignment = (alignment) => () => {
     setTextAlignment(alignment);
@@ -121,15 +132,28 @@ export function FormatTextBox() {
               </Button>
             </div>
             <div className="grid grid-cols-3 items-center gap-4">
-              <Label htmlFor="lineSpacing">Line spacing</Label>
-              {/* <Button
-                onClick={change}
-                id="lineSpacing"
-                variant="outline"
-                size="icon"
-              >
-                <ChevronLeft />
-              </Button> */}
+              <Label htmlFor="lineSpacing">Line height</Label>
+              <div className="flex flex-row">
+                <Button
+                  onClick={() => setLineHeight(lineHeight - 0.1)}
+                  id="decreasetextsize"
+                  variant="outline"
+                  size="icon"
+                >
+                  <ChevronLeft />
+                </Button>
+                <Badge className="border-none" variant="outline">
+                  {lineHeight.toFixed(1)}
+                </Badge>
+                <Button
+                  onClick={() => setLineHeight(lineHeight + 0.1)}
+                  id="increasetextsize"
+                  variant="outline"
+                  size="icon"
+                >
+                  <ChevronRight />
+                </Button>
+              </div>
             </div>
           </div>
         </div>

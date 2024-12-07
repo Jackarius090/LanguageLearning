@@ -68,6 +68,7 @@ const TextBox = ({
   const textColor = useTextStyleStore((state) => state.textColor);
   const textFont = useTextStyleStore((state) => state.fontFamily);
   const textAlignment = useTextStyleStore((state) => state.textAlignment);
+  const lineHeight = useTextStyleStore((state) => state.lineHeight);
 
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
@@ -99,6 +100,7 @@ const TextBox = ({
           fontSize: `${textSize}px`,
           color: textColor,
           "--placeholder-color": textColor,
+          lineHeight: lineHeight,
         }}
         className={
           textColor === "primary"
