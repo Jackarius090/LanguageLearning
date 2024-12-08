@@ -136,7 +136,7 @@ export function FormatTextBox() {
               <div className="flex flex-row">
                 <Button
                   onClick={() => setLineHeight(lineHeight - 0.1)}
-                  id="decreasetextsize"
+                  id="lineSpacing"
                   variant="outline"
                   size="icon"
                 >
@@ -147,7 +147,7 @@ export function FormatTextBox() {
                 </Badge>
                 <Button
                   onClick={() => setLineHeight(lineHeight + 0.1)}
-                  id="increasetextsize"
+                  id="lineSpacing"
                   variant="outline"
                   size="icon"
                 >

@@ -1,5 +1,5 @@
 import HighlightedText from "@/components/HighlightedText";
-import TextBox from "@/components/TextBox";
+import { TextBox } from "@/components/TextBox";
 import { useState } from "react";
 
 export default function TextWindow() {

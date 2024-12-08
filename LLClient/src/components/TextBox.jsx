@@ -56,6 +56,13 @@ const TextBox = ({
         setTranslation({
           translation: "Please select less than 20 words at a time",
         });
+      } else if (
+        error.message ===
+        "Too many translation requests, please try again later"
+      ) {
+        setTranslation({
+          translation: "Too many translation requests, please try again later",
+        });
       } else {
         setTranslation({ translation: "Failed to translate" });
       }
@@ -116,4 +123,4 @@ const TextBox = ({
   );
 };
 
-export default TextBox;
+export { TextBox };

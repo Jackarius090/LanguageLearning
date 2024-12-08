@@ -1,5 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import GptWindow from "./GptWindow";
+import { Play } from "lucide-react";
+import { Button } from "./ui/button";
+import { textToVoice } from "@/lib/textToVoiceFunction";
+import { Label } from "@radix-ui/react-label";
 
 const HighlightedText = ({ highlightedText, translation }) => {
   const TranslationTextToRender = () => {
@@ -12,6 +16,30 @@ const HighlightedText = ({ highlightedText, translation }) => {
     }
   };
 
+  const [audioSrc, setAudioSrc] = useState("");
+  useEffect(() => {
+    const handleTextToVoice = async () => {
+      if (!highlightedText) {
+        console.log("No text selected to play");
+        return;
+      }
+      try {
+        const { audioFile } = await textToVoice(highlightedText, "da");
+        setAudioSrc(`data:audio/mp3;base64,${audioFile.audioFile}`);
+      } catch (error) {
+        console.error("Error processing audio:", error);
+      }
+    };
+    handleTextToVoice();
+  }, [highlightedText]);
+
+  const handlePlay = () => {
+    if (audioSrc) {
+      const audio = new Audio(audioSrc);
+      audio.play();
+    }
+  };
+
   return (
     <div className="flex-1 pl-2 pt-3">
       <div className="relative">
@@ -19,15 +47,29 @@ const HighlightedText = ({ highlightedText, translation }) => {
           Definition:
         </h1>
       </div>
-      <div className="pt-2 border border-input rounded-md bg-background px-3 py-2 text-xs sm:text-sm md:text-md">
-        <p>
-          Original:{" "}
-          {highlightedText ? highlightedText : "No text highlighted yet."}
-        </p>
-        <TranslationTextToRender />
+      <div className="flex flex-col sm:flex-row pt-2 border border-input rounded-md bg-background px-3 py-2 text-xs sm:text-sm md:text-md">
+        <div className="place-content-center pr-2">
+          <Label htmlFor="playbutton">Play audio!</Label>
+          <Button
+            onClick={handlePlay}
+            id="playbutton"
+            variant="outline"
+            size="icon"
+            disabled={!highlightedText}
+          >
+            <Play />
+          </Button>
+        </div>
+        <div className="flex flex-col">
+          <p>
+            Original:{" "}
+            {highlightedText ? highlightedText : "No text highlighted yet."}
+          </p>
+          <TranslationTextToRender />
+        </div>
       </div>
       <GptWindow />
-      <p>
+      <p className="mt-4 text-sm text-gray-600">
         Add some text in the textbox, then highlight a word you don't understand
         to see a translation.
       </p>

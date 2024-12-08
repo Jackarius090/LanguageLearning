@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, "dist")));
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 50, // limit each IP to 100 requests per windowMs
+  max: 50, // limit each IP to 50 requests per windowMs
 });
 
 app.use("/api/", limiter);
@@ -100,6 +100,71 @@ app.post("/api/translate", translationLimiter, async (req, res) => {
   } catch (error) {
     console.error("Server error:", error);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/api/texttovoice", async (req, res) => {
+  try {
+    const { text } = req.body;
+    const { langCode } = req.body;
+
+    if (!text || typeof text !== "string") {
+      return res.status(400).json({ error: "Invalid input" });
+    }
+
+    if (text.length > 20) {
+      return res.status(400).json({ error: "Text too long" });
+    }
+
+    const apiKey = process.env.GOOGLE_CLOUD_API_KEY;
+
+    if (!apiKey) {
+      return res.status(500).json({ error: "API key not configured" });
+    }
+
+    const response = await fetch(
+      `https://texttospeech.googleapis.com/v1/text:synthesize?key=${apiKey}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Referer: req.headers.referer || "https://languagelearning.fly.dev",
+        },
+        body: JSON.stringify({
+          input: {
+            text: text,
+          },
+          voice: {
+            languageCode: langCode,
+          },
+          audioConfig: {
+            audioEncoding: "MP3",
+          },
+        }),
+      }
+    );
+
+    const data = await response.json();
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: data.error?.message || "Text to voice API error",
+      });
+    }
+
+    if (data) {
+      res.json({
+        audioFile: data.audioContent,
+      });
+    } else {
+      res
+        .status(400)
+        .json({ error: "Invalid response from text to voice service" });
+    }
+  } catch (error) {
+    console.error("Server error:", error);
+    res
+      .status(500)
+      .json({ error: "Internal server error from text to voice service" });
   }
 });
 
