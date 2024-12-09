@@ -4,9 +4,7 @@ import { useState } from "react";
 
 export default function TextWindow() {
   const [languageCode, setLanguageCode] = useState("");
-  const [highlightedText, setHighlightedText] = useState(
-    "Highlight a word to see its definition!"
-  );
+  const [highlightedText, setHighlightedText] = useState("");
   const [translation, setTranslation] = useState({
     translation: "",
     loading: false,

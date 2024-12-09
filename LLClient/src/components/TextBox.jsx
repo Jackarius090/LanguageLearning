@@ -18,7 +18,7 @@ const TextBox = ({
   const { toast } = useToast();
   const { setValue, value } = useTextStore();
 
-  const handleMouseUp = () => {
+  const handleSelection = () => {
     const selectedText = window.getSelection().toString();
     if (selectedText) {
       const wordCount = selectedText.trim().split(/\s+/).length;
@@ -38,6 +38,14 @@ const TextBox = ({
         });
       }
     }
+  };
+
+  const handleMouseUp = () => {
+    handleSelection();
+  };
+
+  const handleTouchEnd = () => {
+    handleSelection();
   };
 
   const handleChange = (e) => {
@@ -79,10 +87,10 @@ const TextBox = ({
 
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
-      <div>
-        <FormatTextBox className="" />
+      <div className="flex gap-2 justify-center">
+        <FormatTextBox />
         <Button
-          className="m-3 w-1/5 mx-4"
+          className="text-xs md:text-base text-wrap"
           variant="outline"
           onClick={() => setValue("")}
         >
@@ -115,6 +123,7 @@ const TextBox = ({
             : "placeholder:[color:var(--placeholder-color)]"
         }
         onMouseUp={handleMouseUp}
+        onTouchEnd={handleTouchEnd}
         value={value}
         onChange={handleChange}
         placeholder="Add text here... Try adding a sample text from the menu above or copy in your own text"

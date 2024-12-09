@@ -41,7 +41,7 @@ export function FormatTextBox() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button className="m-3 w-1/5 mx-4" variant="outline">
+        <Button className="text-xs md:text-base text-wrap" variant="outline">
           Format Text
         </Button>
       </PopoverTrigger>

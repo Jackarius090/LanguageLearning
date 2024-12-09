@@ -16,11 +16,18 @@ const HighlightedText = ({ highlightedText, translation }) => {
     }
   };
 
+  const handlePlay = () => {
+    if (audioSrc) {
+      const audio = new Audio(audioSrc);
+      audio.play();
+    }
+  };
+
   const [audioSrc, setAudioSrc] = useState("");
+
   useEffect(() => {
     const handleTextToVoice = async () => {
       if (!highlightedText) {
-        console.log("No text selected to play");
         return;
       }
       try {
@@ -33,12 +40,9 @@ const HighlightedText = ({ highlightedText, translation }) => {
     handleTextToVoice();
   }, [highlightedText]);
 
-  const handlePlay = () => {
-    if (audioSrc) {
-      const audio = new Audio(audioSrc);
-      audio.play();
-    }
-  };
+  useEffect(() => {
+    handlePlay();
+  }, [audioSrc]);
 
   return (
     <div className="flex-1 pl-2 pt-3">
@@ -47,8 +51,8 @@ const HighlightedText = ({ highlightedText, translation }) => {
           Definition:
         </h1>
       </div>
-      <div className="flex flex-col sm:flex-row pt-2 border border-input rounded-md bg-background px-3 py-2 text-xs sm:text-sm md:text-md">
-        <div className="place-content-center pr-2">
+      <div className="flex justify-center md:gap-8 flex-col sm:flex-row pt-2 border border-input rounded-md bg-background px-3 py-2 text-xs sm:text-sm md:text-md">
+        <div className="place-content-center p-1">
           <Label htmlFor="playbutton">Play audio!</Label>
           <Button
             onClick={handlePlay}
@@ -56,11 +60,12 @@ const HighlightedText = ({ highlightedText, translation }) => {
             variant="outline"
             size="icon"
             disabled={!highlightedText}
+            className="m-1"
           >
             <Play />
           </Button>
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col place-content-center">
           <p>
             Original:{" "}
             {highlightedText ? highlightedText : "No text highlighted yet."}
