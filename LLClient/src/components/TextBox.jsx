@@ -14,6 +14,7 @@ const TextBox = ({
   setLanguageCode,
   setTranslation,
   translation,
+  targetLang,
 }) => {
   const { toast } = useToast();
   const { setValue, value } = useTextStore();
@@ -55,7 +56,8 @@ const TextBox = ({
   const handleTranslate = async (TexttoTranslate) => {
     try {
       const { translatedText, detectedLanguage } = await translateText(
-        TexttoTranslate
+        TexttoTranslate,
+        targetLang
       );
       setTranslation({ translation: translatedText, loading: false });
       setLanguageCode(detectedLanguage);

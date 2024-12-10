@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 import { textToVoice } from "@/lib/textToVoiceFunction";
 import { Label } from "@radix-ui/react-label";
 
+
 const HighlightedText = ({ highlightedText, translation }) => {
   const TranslationTextToRender = () => {
     if (!translation.firstTime && !translation.translation) {
@@ -43,6 +44,8 @@ const HighlightedText = ({ highlightedText, translation }) => {
   useEffect(() => {
     handlePlay();
   }, [audioSrc]);
+
+  
 
   return (
     <div className="flex-1 pl-2 pt-3">

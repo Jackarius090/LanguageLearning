@@ -48,7 +48,9 @@ const translationLimiter = rateLimit({
 
 app.post("/api/translate", translationLimiter, async (req, res) => {
   try {
+    console.log(req.body);
     const { text } = req.body;
+    const { target } = req.body;
 
     if (!text || typeof text !== "string") {
       return res.status(400).json({ error: "Invalid input" });
@@ -74,7 +76,7 @@ app.post("/api/translate", translationLimiter, async (req, res) => {
         },
         body: JSON.stringify({
           q: text,
-          target: "en",
+          target: target,
         }),
       }
     );
