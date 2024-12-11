@@ -54,6 +54,8 @@ export default function TextWindow() {
           <HighlightedText
             highlightedText={highlightedText}
             translation={translation}
+            targetLang={targetLang}
+            languageCode={languageCode}
           />
         </div>
       </div>

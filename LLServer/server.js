@@ -42,13 +42,12 @@ app.use("/api/", limiter);
 // Add rate limiting for translation endpoint specifically
 const translationLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 50, // Adjust this number based on your needs
+  max: 150, // Adjust this number based on your needs
   message: { error: "Too many translation requests, please try again later" },
 });
 
 app.post("/api/translate", translationLimiter, async (req, res) => {
   try {
-    console.log(req.body);
     const { text } = req.body;
     const { target } = req.body;
 
@@ -137,7 +136,7 @@ app.post("/api/texttovoice", async (req, res) => {
             text: text,
           },
           voice: {
-            languageCode: langCode,
+            languageCode: langCode || "en",
           },
           audioConfig: {
             audioEncoding: "MP3",
