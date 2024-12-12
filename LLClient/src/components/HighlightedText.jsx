@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import { textToVoice } from "@/lib/textToVoiceFunction";
 import { Label } from "@radix-ui/react-label";
 
-const HighlightedText = ({ highlightedText, translation, languageCode }) => {
+const HighlightedText = ({ highlightedText, translation, audioSrc }) => {
   const TranslationTextToRender = () => {
     if (!translation.firstTime && !translation.translation) {
       return <p>loading...</p>;
@@ -22,24 +22,6 @@ const HighlightedText = ({ highlightedText, translation, languageCode }) => {
       audio.play();
     }
   };
-
-  const [audioSrc, setAudioSrc] = useState("");
-
-  useEffect(() => {
-    const handleTextToVoice = async () => {
-      if (!highlightedText) {
-        return;
-      }
-      try {
-        console.log(languageCode);
-        const { audioFile } = await textToVoice(highlightedText, languageCode);
-        setAudioSrc(`data:audio/mp3;base64,${audioFile.audioFile}`);
-      } catch (error) {
-        console.error("Error processing audio:", error);
-      }
-    };
-    handleTextToVoice();
-  }, [highlightedText, languageCode]);
 
   useEffect(() => {
     handlePlay();

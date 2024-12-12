@@ -7,14 +7,17 @@ import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { FormatTextBox } from "./FormatTextBox";
 import { useTextStyleStore } from "@/lib/textStyleStore";
+import { textToVoice } from "@/lib/textToVoiceFunction";
 
 const TextBox = ({
   setHighlightedText,
+  highlightedText,
   languageCode,
   setLanguageCode,
   setTranslation,
   translation,
   targetLang,
+  setAudioSrc,
 }) => {
   const { toast } = useToast();
   const { setValue, value } = useTextStore();
@@ -61,6 +64,8 @@ const TextBox = ({
       );
       setTranslation({ translation: translatedText, loading: false });
       setLanguageCode(detectedLanguage);
+
+      await handleTextToVoice(highlightedText, detectedLanguage);
     } catch (error) {
       if (error.message === "Text exceeds 20 words limit") {
         setTranslation({
@@ -76,7 +81,20 @@ const TextBox = ({
       } else {
         setTranslation({ translation: "Failed to translate" });
       }
-      console.log(error);
+      console.error(error);
+    }
+  };
+
+  const handleTextToVoice = async (text, languageCode) => {
+    if (!text) {
+      return;
+    }
+    try {
+      console.log(languageCode);
+      const { audioFile } = await textToVoice(text, languageCode);
+      setAudioSrc(`data:audio/mp3;base64,${audioFile.audioFile}`);
+    } catch (error) {
+      console.error("Error processing audio:", error);
     }
   };
 

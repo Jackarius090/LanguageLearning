@@ -18,6 +18,7 @@ export default function TextWindow() {
     loading: false,
     firstTime: true,
   }); // Holds the translated text and loading state
+  const [audioSrc, setAudioSrc] = useState("");
 
   const [targetLang, setTargetLang] = useState("en");
 
@@ -30,6 +31,8 @@ export default function TextWindow() {
           setHighlightedText={setHighlightedText}
           setTranslation={setTranslation}
           targetLang={targetLang}
+          setAudioSrc={setAudioSrc}
+          highlightedText={highlightedText}
         />
         <div>
           <div className="grid grid-cols-3 items-center pb-5">
@@ -55,7 +58,7 @@ export default function TextWindow() {
             highlightedText={highlightedText}
             translation={translation}
             targetLang={targetLang}
-            languageCode={languageCode}
+            audioSrc={audioSrc}
           />
         </div>
       </div>

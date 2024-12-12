@@ -34,7 +34,7 @@ app.use(express.static(path.join(__dirname, "dist")));
 // Rate limiting
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 50, // limit each IP to 50 requests per windowMs
+  max: 500, // limit each IP to 50 requests per windowMs
 });
 
 app.use("/api/", limiter);
@@ -42,7 +42,7 @@ app.use("/api/", limiter);
 // Add rate limiting for translation endpoint specifically
 const translationLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 150, // Adjust this number based on your needs
+  max: 500, // Adjust this number based on your needs
   message: { error: "Too many translation requests, please try again later" },
 });
 
