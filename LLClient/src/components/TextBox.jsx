@@ -29,7 +29,7 @@ const TextBox = ({
       if (wordCount <= 20) {
         setHighlightedText(selectedText);
         setTranslation({ ...translation, loading: true, firstTime: false });
-        handleTranslate(selectedText);
+        handleTranslate(selectedText, selectedText);
       } else {
         toast({
           variant: "destructive",
@@ -56,7 +56,7 @@ const TextBox = ({
     setValue(e.target.value);
   };
 
-  const handleTranslate = async (TexttoTranslate) => {
+  const handleTranslate = async (TexttoTranslate, selectedText) => {
     try {
       const { translatedText, detectedLanguage } = await translateText(
         TexttoTranslate,
@@ -65,7 +65,7 @@ const TextBox = ({
       setTranslation({ translation: translatedText, loading: false });
       setLanguageCode(detectedLanguage);
 
-      await handleTextToVoice(highlightedText, detectedLanguage);
+      await handleTextToVoice(selectedText, detectedLanguage);
     } catch (error) {
       if (error.message === "Text exceeds 20 words limit") {
         setTranslation({
@@ -90,7 +90,6 @@ const TextBox = ({
       return;
     }
     try {
-      console.log(languageCode);
       const { audioFile } = await textToVoice(text, languageCode);
       setAudioSrc(`data:audio/mp3;base64,${audioFile.audioFile}`);
     } catch (error) {
