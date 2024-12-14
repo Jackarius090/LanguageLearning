@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { translateText } from "@/lib/translateFunction";
+import { detectLanguage } from "@/lib/detectLanguage";
 import { getLanguageName } from "@/lib/utils";
 import { useTextStore } from "@/lib/textStore";
 import { Textarea } from "./ui/textarea";
@@ -11,7 +12,6 @@ import { textToVoice } from "@/lib/textToVoiceFunction";
 
 const TextBox = ({
   setHighlightedText,
-  highlightedText,
   languageCode,
   setLanguageCode,
   setTranslation,
@@ -20,7 +20,37 @@ const TextBox = ({
   setAudioSrc,
 }) => {
   const { toast } = useToast();
-  const { setValue, value } = useTextStore();
+  const { setTextboxText, TextboxText } = useTextStore();
+  const language = getLanguageName(languageCode);
+  const textSize = useTextStyleStore((state) => state.fontSize);
+  const textColor = useTextStyleStore((state) => state.textColor);
+  const textFont = useTextStyleStore((state) => state.fontFamily);
+  const textAlignment = useTextStyleStore((state) => state.textAlignment);
+  const lineHeight = useTextStyleStore((state) => state.lineHeight);
+
+  const handleMouseUp = () => {
+    handleSelection();
+  };
+
+  const handleTouchEnd = () => {
+    handleSelection();
+  };
+
+  const handleChange = (e) => {
+    const text = e.target.value.split(/\s+/).slice(0, 15).join(" ");
+    async function langCode(text) {
+      try {
+        const result = await detectLanguage(text);
+        return result.detectedLanguage;
+      } catch (error) {
+        console.error("Error in langCode:", error);
+        throw error;
+      }
+    }
+    console.log(detectLanguage);
+    setTextboxText();
+    setLanguageCode(langCode);
+  };
 
   const handleSelection = () => {
     const selectedText = window.getSelection().toString();
@@ -44,28 +74,15 @@ const TextBox = ({
     }
   };
 
-  const handleMouseUp = () => {
-    handleSelection();
-  };
-
-  const handleTouchEnd = () => {
-    handleSelection();
-  };
-
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-
   const handleTranslate = async (TexttoTranslate, selectedText) => {
     try {
-      const { translatedText, detectedLanguage } = await translateText(
+      const { translatedText } = await translateText(
         TexttoTranslate,
         targetLang
       );
       setTranslation({ translation: translatedText, loading: false });
-      setLanguageCode(detectedLanguage);
 
-      await handleTextToVoice(selectedText, detectedLanguage);
+      await handleTextToVoice(selectedText, languageCode);
     } catch (error) {
       if (error.message === "Text exceeds 20 words limit") {
         setTranslation({
@@ -97,13 +114,6 @@ const TextBox = ({
     }
   };
 
-  const language = getLanguageName(languageCode);
-  const textSize = useTextStyleStore((state) => state.fontSize);
-  const textColor = useTextStyleStore((state) => state.textColor);
-  const textFont = useTextStyleStore((state) => state.fontFamily);
-  const textAlignment = useTextStyleStore((state) => state.textAlignment);
-  const lineHeight = useTextStyleStore((state) => state.lineHeight);
-
   return (
     <div className="w-9/12 max-w-74ch flex flex-col">
       <div className="flex gap-2 justify-center">
@@ -111,7 +121,7 @@ const TextBox = ({
         <Button
           className="text-xs md:text-base text-wrap"
           variant="outline"
-          onClick={() => setValue("")}
+          onClick={() => setTextboxText("")}
         >
           Clear textbox
         </Button>
@@ -143,7 +153,7 @@ const TextBox = ({
         }
         onMouseUp={handleMouseUp}
         onTouchEnd={handleTouchEnd}
-        value={value}
+        value={TextboxText}
         onChange={handleChange}
         placeholder="Add text here... Try adding a sample text from the menu above or copy in your own text"
       />

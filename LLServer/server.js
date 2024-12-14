@@ -42,7 +42,7 @@ app.use("/api/", limiter);
 // Add rate limiting for translation endpoint specifically
 const translationLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 500, // Adjust this number based on your needs
+  max: 250, // Adjust this number based on your needs
   message: { error: "Too many translation requests, please try again later" },
 });
 
@@ -92,6 +92,60 @@ app.post("/api/translate", translationLimiter, async (req, res) => {
       res.json({
         translatedText: data.data.translations[0].translatedText,
         detectedLanguage: data.data.translations[0].detectedSourceLanguage,
+      });
+    } else {
+      res
+        .status(400)
+        .json({ error: "Invalid response from translation service" });
+    }
+  } catch (error) {
+    console.error("Server error:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/api/detectlanguage", translationLimiter, async (req, res) => {
+  try {
+    const { content } = req.body;
+
+    if (!content || typeof content !== "string" || content.trim() === "") {
+      throw new Error("Invalid input: Text is required.");
+    }
+
+    if (content.length > 500) {
+      return res.status(400).json({ error: "Text too long" });
+    }
+
+    const apiKey = process.env.GOOGLE_CLOUD_API_KEY;
+
+    if (!apiKey) {
+      return res.status(500).json({ error: "API key not configured" });
+    }
+
+    const API_URL = `https://translation.googleapis.com/language/translate/v2/detect?key=${apiKey}`;
+
+    const response = await fetch(API_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Referer: req.headers.referer || "https://languagelearning.fly.dev",
+      },
+      body: JSON.stringify({
+        q: content,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      return res.status(response.status).json({
+        error: data.error?.message || "Translation API error",
+      });
+    }
+
+    if (data?.data?.detections?.[0][0].language) {
+      res.json({
+        detectedLanguage: data.data.detections[0][0].language,
       });
     } else {
       res

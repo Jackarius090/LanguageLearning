@@ -19,7 +19,7 @@ import { useTextStore } from "@/lib/textStore";
 import { useToast } from "@/hooks/use-toast";
 
 const NavBar = () => {
-  const setValue = useTextStore((state) => state.setValue);
+  const setTextboxText = useTextStore((state) => state.setTextboxText);
   const { toast } = useToast();
   const comingSoonToast = () => {
     toast({
@@ -40,7 +40,7 @@ const NavBar = () => {
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <SimpleListItem
                   title="🇩🇰 Danish text"
-                  onClick={() => setValue(danishText)}
+                  onClick={() => setTextboxText(danishText)}
                 />
                 <li className="row-span-3">
                   <div className="flex items-center place-content-center h-full w-full select-none flex-col rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md">
