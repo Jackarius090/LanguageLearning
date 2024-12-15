@@ -1,4 +1,5 @@
 export const detectLanguage = async (text) => {
+  const shortText = text.slice(0, 100);
   try {
     const API_URL =
       import.meta.env.VITE_detectLanguage_API_URL ||
@@ -14,7 +15,7 @@ export const detectLanguage = async (text) => {
       },
       credentials: "include",
       referrerPolicy: "origin",
-      body: JSON.stringify({ content: text }),
+      body: JSON.stringify({ content: shortText }),
     });
 
     if (!response.ok) {

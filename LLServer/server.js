@@ -109,6 +109,7 @@ app.post("/api/detectlanguage", translationLimiter, async (req, res) => {
     const { content } = req.body;
 
     if (!content || typeof content !== "string" || content.trim() === "") {
+      console.log(content);
       throw new Error("Invalid input: Text is required.");
     }
 

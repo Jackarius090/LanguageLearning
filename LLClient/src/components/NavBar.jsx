@@ -56,19 +56,19 @@ const NavBar = () => {
                 </li>
                 <SimpleListItem
                   title="🇹🇼 Traditional Mandarin text"
-                  onClick={() => setValue(chineseText)}
+                  onClick={() => setTextboxText(chineseText)}
                 />
                 <SimpleListItem
                   title="🇮🇹 Italian text"
-                  onClick={() => setValue(italianText)}
+                  onClick={() => setTextboxText(italianText)}
                 />
                 <SimpleListItem
                   title="🇩🇪 German text"
-                  onClick={() => setValue(germanText)}
+                  onClick={() => setTextboxText(germanText)}
                 />
                 <SimpleListItem
                   title="🇫🇷 French text"
-                  onClick={() => setValue(frenchText)}
+                  onClick={() => setTextboxText(frenchText)}
                 />
               </ul>
             </NavigationMenuContent>

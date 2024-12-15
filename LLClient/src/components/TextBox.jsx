@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { FormatTextBox } from "./FormatTextBox";
 import { useTextStyleStore } from "@/lib/textStyleStore";
 import { textToVoice } from "@/lib/textToVoiceFunction";
+import { useEffect } from "react";
 
 const TextBox = ({
   setHighlightedText,
@@ -36,20 +37,25 @@ const TextBox = ({
     handleSelection();
   };
 
-  const handleChange = (e) => {
-    const text = e.target.value.split(/\s+/).slice(0, 15).join(" ");
-    async function langCode(text) {
-      try {
-        const result = await detectLanguage(text);
-        return result.detectedLanguage;
-      } catch (error) {
-        console.error("Error in langCode:", error);
-        throw error;
-      }
+  const detectedLanguageCodeSetter = async (text) => {
+    try {
+      const result = await detectLanguage(text);
+      setLanguageCode(result.detectedLanguage);
+    } catch (error) {
+      console.error("Error in langCode:", error);
+      throw error;
     }
-    console.log(detectLanguage);
+  };
+
+  useEffect(() => {
+    if (TextboxText != "") {
+      detectedLanguageCodeSetter(TextboxText);
+    }
+  }, [TextboxText]);
+
+  const handleChange = (e) => {
+    detectedLanguageCodeSetter(e.target.value);
     setTextboxText();
-    setLanguageCode(langCode);
   };
 
   const handleSelection = () => {

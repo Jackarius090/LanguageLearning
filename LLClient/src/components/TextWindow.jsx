@@ -35,24 +35,28 @@ export default function TextWindow() {
           highlightedText={highlightedText}
         />
         <div>
-          <div className="grid grid-cols-3 items-center pb-5">
-            <Label htmlFor="targetLang">Set target language</Label>
-            <Select
-              id="targetLang"
-              value={targetLang}
-              onValueChange={setTargetLang}
-            >
-              <SelectTrigger className="col-span-2">
-                <SelectValue placeholder="Select target language" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="en">English</SelectItem>
-                <SelectItem value="da">Danish</SelectItem>
-                <SelectItem value="it">Italian</SelectItem>
-                <SelectItem value="fr">French</SelectItem>
-                <SelectItem value="zh">Mandarin</SelectItem>
-              </SelectContent>
-            </Select>
+          <div className="flex row pb-10">
+            <Label htmlFor="targetLang" className="text-sm md:text-md">
+              Set target language:
+            </Label>
+            <div className="w-75 px-2">
+              <Select
+                id="targetLang"
+                value={targetLang}
+                onValueChange={setTargetLang}
+              >
+                <SelectTrigger className="">
+                  <SelectValue placeholder="Select target language" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="en">English</SelectItem>
+                  <SelectItem value="da">Danish</SelectItem>
+                  <SelectItem value="it">Italian</SelectItem>
+                  <SelectItem value="fr">French</SelectItem>
+                  <SelectItem value="zh">Mandarin</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           <HighlightedText
             highlightedText={highlightedText}
