@@ -35,7 +35,7 @@ export default function TextWindow() {
           highlightedText={highlightedText}
         />
         <div>
-          <div className="flex row pb-10">
+          <div className="flex row pb-10 place-items-center	">
             <Label htmlFor="targetLang" className="text-sm md:text-md">
               Set target language:
             </Label>
