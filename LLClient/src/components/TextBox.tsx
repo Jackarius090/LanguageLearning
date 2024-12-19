@@ -151,7 +151,7 @@ const TextBox = ({
           color: textColor,
           "--placeholder-color": textColor,
           lineHeight: lineHeight,
-        }}
+        } as React.CSSProperties}
         className={
           textColor === "primary"
             ? "placeholder-primary"

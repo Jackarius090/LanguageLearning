@@ -1,0 +1,72 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2024-12-16 23:29:02
+count workspace : /Users/jackdickinson/repos/LanguageLearning
+total files : 60
+total code lines : 10781
+total comment lines : 247
+total blank lines : 335
+
+.dockerignore, code is 25, comment is 13, blank is 1.
+.env.production, code is 1, comment is 1, blank is 0.
+.gitignore, code is 14, comment is 16, blank is 2.
+Dockerfile, code is 16, comment is 0, blank is 2.
+fly.toml, code is 18, comment is 1, blank is 4.
+LLClient/.env, code is 3, comment is 3, blank is 0.
+LLClient/.vite/deps_temp_43cf7315/package.json, code is 3, comment is 0, blank is 0.
+LLClient/components.json, code is 20, comment is 0, blank is 0.
+LLClient/eslint.config.js, code is 38, comment is 0, blank is 1.
+LLClient/index.html, code is 19, comment is 0, blank is 0.
+LLClient/jsconfig.json, code is 8, comment is 0, blank is 0.
+LLClient/package-lock.json, code is 7661, comment is 0, blank is 80.
+LLClient/package.json, code is 47, comment is 0, blank is 0.
+LLClient/postcss.config.js, code is 6, comment is 0, blank is 0.
+LLClient/public/favicon-32x32.png, it is a binary file.
+LLClient/public/favicon-512x512.png, it is a binary file.
+LLClient/public/logo.svg, code is 1, comment is 0, blank is 0.
+LLClient/src/App.jsx, code is 33, comment is 9, blank is 6.
+LLClient/src/components/Banner.jsx, code is 17, comment is 0, blank is 2.
+LLClient/src/components/EditBoxTextSize.jsx, code is 37, comment is 0, blank is 3.
+LLClient/src/components/FormatTextBox.jsx, code is 159, comment is 0, blank is 4.
+LLClient/src/components/GptWindow.jsx, code is 21, comment is 0, blank is 2.
+LLClient/src/components/HighlightedText.jsx, code is 57, comment is 0, blank is 4.
+LLClient/src/components/NavBar.jsx, code is 155, comment is 0, blank is 6.
+LLClient/src/components/TextBox.tsx, code is 65, comment is 0, blank is 7.
+LLClient/src/components/TextWindow.jsx, code is 68, comment is 1, blank is 3.
+LLClient/src/components/ThemeSwitch.jsx, code is 51, comment is 0, blank is 6.
+LLClient/src/components/ui/badge.jsx, code is 30, comment is 0, blank is 4.
+LLClient/src/components/ui/button.jsx, code is 46, comment is 0, blank is 4.
+LLClient/src/components/ui/label.jsx, code is 11, comment is 0, blank is 5.
+LLClient/src/components/ui/navigation-menu.jsx, code is 110, comment is 0, blank is 12.
+LLClient/src/components/ui/popover.jsx, code is 20, comment is 0, blank is 5.
+LLClient/src/components/ui/select.jsx, code is 107, comment is 0, blank is 13.
+LLClient/src/components/ui/Switch.jsx, code is 34, comment is 1, blank is 7.
+LLClient/src/components/ui/textarea.jsx, code is 16, comment is 0, blank is 3.
+LLClient/src/components/ui/toast.jsx, code is 72, comment is 0, blank is 11.
+LLClient/src/components/ui/toaster.jsx, code is 31, comment is 0, blank is 2.
+LLClient/src/hooks/use-toast.js, code is 128, comment is 3, blank is 24.
+LLClient/src/index.css, code is 101, comment is 0, blank is 7.
+LLClient/src/lib/detectLanguage.js, code is 31, comment is 0, blank is 3.
+LLClient/src/lib/languageCodes.js, code is 197, comment is 0, blank is 0.
+LLClient/src/lib/sampleTexts.jsx, code is 31, comment is 1, blank is 28.
+LLClient/src/lib/textColorStore.js, code is 5, comment is 0, blank is 1.
+LLClient/src/lib/textStore.js, code is 5, comment is 0, blank is 1.
+LLClient/src/lib/textStyleStore.js, code is 13, comment is 0, blank is 2.
+LLClient/src/lib/textToVoiceFunction.js, code is 34, comment is 0, blank is 4.
+LLClient/src/lib/translateFunction.jsx, code is 35, comment is 0, blank is 4.
+LLClient/src/lib/utils.js, code is 10, comment is 0, blank is 2.
+LLClient/src/main.jsx, code is 9, comment is 0, blank is 1.
+LLClient/tailwind.config.js, code is 60, comment is 1, blank is 0.
+LLClient/tsconfig.json, code is 11, comment is 93, blank is 8.
+LLClient/vite.config.js, code is 11, comment is 1, blank is 1.
+LLServer/.env, code is 2, comment is 0, blank is 0.
+LLServer/package-lock.json, code is 835, comment is 0, blank is 0.
+LLServer/package.json, code is 21, comment is 0, blank is 0.
+LLServer/server.js, code is 195, comment is 9, blank is 37.
+package-lock.json, code is 6, comment is 0, blank is 0.
+package.json, code is 1, comment is 0, blank is 0.
+README.md, code is 10, comment is 1, blank is 5.
+tsconfig.json, code is 10, comment is 93, blank is 8.
+===============================================================================

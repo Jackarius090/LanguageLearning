@@ -1,0 +1,379 @@
+{
+    "extension": "linecount",
+    "version": "0.1.7",
+    "workspace": "/Users/jackdickinson/repos/LanguageLearning",
+    "linecount": [
+        {
+            "version": "0.1.7",
+            "counttime": "2024-12-16 23:29:02",
+            "filesum": 60,
+            "codesum": 10781,
+            "commentsum": 247,
+            "blanksum": 335,
+            "filelist": [
+                {
+                    "blank": 1,
+                    "code": 25,
+                    "comment": 13,
+                    "filename": ".dockerignore"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 1,
+                    "filename": ".env.production"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 16,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 2,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "Dockerfile"
+                },
+                {
+                    "blank": 4,
+                    "code": 18,
+                    "comment": 1,
+                    "filename": "fly.toml"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 3,
+                    "filename": "LLClient/.env"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "LLClient/.vite/deps_temp_43cf7315/package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "LLClient/components.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 38,
+                    "comment": 0,
+                    "filename": "LLClient/eslint.config.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 19,
+                    "comment": 0,
+                    "filename": "LLClient/index.html"
+                },
+                {
+                    "blank": 0,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "LLClient/jsconfig.json"
+                },
+                {
+                    "blank": 80,
+                    "code": 7661,
+                    "comment": 0,
+                    "filename": "LLClient/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 47,
+                    "comment": 0,
+                    "filename": "LLClient/package.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "LLClient/postcss.config.js"
+                },
+                {
+                    "filename": "LLClient/public/favicon-32x32.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "LLClient/public/favicon-512x512.png",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "LLClient/public/logo.svg"
+                },
+                {
+                    "blank": 6,
+                    "code": 33,
+                    "comment": 9,
+                    "filename": "LLClient/src/App.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/Banner.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/EditBoxTextSize.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 159,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/FormatTextBox.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/GptWindow.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 57,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/HighlightedText.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 155,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/NavBar.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 65,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/TextBox.tsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 68,
+                    "comment": 1,
+                    "filename": "LLClient/src/components/TextWindow.jsx"
+                },
+                {
+                    "blank": 6,
+                    "code": 51,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ThemeSwitch.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 30,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/badge.jsx"
+                },
+                {
+                    "blank": 4,
+                    "code": 46,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/button.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/label.jsx"
+                },
+                {
+                    "blank": 12,
+                    "code": 110,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/navigation-menu.jsx"
+                },
+                {
+                    "blank": 5,
+                    "code": 20,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/popover.jsx"
+                },
+                {
+                    "blank": 13,
+                    "code": 107,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/select.jsx"
+                },
+                {
+                    "blank": 7,
+                    "code": 34,
+                    "comment": 1,
+                    "filename": "LLClient/src/components/ui/Switch.jsx"
+                },
+                {
+                    "blank": 3,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/textarea.jsx"
+                },
+                {
+                    "blank": 11,
+                    "code": 72,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/toast.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "LLClient/src/components/ui/toaster.jsx"
+                },
+                {
+                    "blank": 24,
+                    "code": 128,
+                    "comment": 3,
+                    "filename": "LLClient/src/hooks/use-toast.js"
+                },
+                {
+                    "blank": 7,
+                    "code": 101,
+                    "comment": 0,
+                    "filename": "LLClient/src/index.css"
+                },
+                {
+                    "blank": 3,
+                    "code": 31,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/detectLanguage.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 197,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/languageCodes.js"
+                },
+                {
+                    "blank": 28,
+                    "code": 31,
+                    "comment": 1,
+                    "filename": "LLClient/src/lib/sampleTexts.jsx"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/textColorStore.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 5,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/textStore.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 13,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/textStyleStore.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/textToVoiceFunction.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 35,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/translateFunction.jsx"
+                },
+                {
+                    "blank": 2,
+                    "code": 10,
+                    "comment": 0,
+                    "filename": "LLClient/src/lib/utils.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 9,
+                    "comment": 0,
+                    "filename": "LLClient/src/main.jsx"
+                },
+                {
+                    "blank": 0,
+                    "code": 60,
+                    "comment": 1,
+                    "filename": "LLClient/tailwind.config.js"
+                },
+                {
+                    "blank": 8,
+                    "code": 11,
+                    "comment": 93,
+                    "filename": "LLClient/tsconfig.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 11,
+                    "comment": 1,
+                    "filename": "LLClient/vite.config.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 2,
+                    "comment": 0,
+                    "filename": "LLServer/.env"
+                },
+                {
+                    "blank": 0,
+                    "code": 835,
+                    "comment": 0,
+                    "filename": "LLServer/package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "LLServer/package.json"
+                },
+                {
+                    "blank": 37,
+                    "code": 195,
+                    "comment": 9,
+                    "filename": "LLServer/server.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "package-lock.json"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 5,
+                    "code": 10,
+                    "comment": 1,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 8,
+                    "code": 10,
+                    "comment": 93,
+                    "filename": "tsconfig.json"
+                }
+            ]
+        }
+    ]
+}
