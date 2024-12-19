@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { FormatTextBox } from "./FormatTextBox";
 import { useTextStyleStore } from "@/lib/textStyleStore";
 import { textToVoice } from "@/lib/textToVoiceFunction";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const TextBox = ({
   setHighlightedText,
@@ -28,6 +28,14 @@ const TextBox = ({
   const textFont = useTextStyleStore((state) => state.fontFamily);
   const textAlignment = useTextStyleStore((state) => state.textAlignment);
   const lineHeight = useTextStyleStore((state) => state.lineHeight);
+  const textareaRef = useRef < HTMLTextAreaElement > null;
+
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = "auto"; // Reset height
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`; // Set to scroll height
+    }
+  }, [TextboxText]);
 
   const handleMouseUp = () => {
     handleSelection();
@@ -137,15 +145,13 @@ const TextBox = ({
       </p>
 
       <Textarea
-        // these should be in tailwind classes haha
+        ref={textareaRef}
+        rows={1} // Set default rows
         id="textbox"
         spellCheck={false}
+        // these should be in tailwind classes haha
         style={{
           textAlign: textAlignment,
-          minHeight: "100vh",
-          height: "auto",
-          resize: "none",
-          overflow: "hidden",
           fontFamily: textFont,
           fontSize: `${textSize}px`,
           color: textColor,
