@@ -28,7 +28,7 @@ const TextBox = ({
   const textFont = useTextStyleStore((state) => state.fontFamily);
   const textAlignment = useTextStyleStore((state) => state.textAlignment);
   const lineHeight = useTextStyleStore((state) => state.lineHeight);
-  const textareaRef = useRef < HTMLTextAreaElement > null;
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (textareaRef.current) {
@@ -56,14 +56,17 @@ const TextBox = ({
   };
 
   useEffect(() => {
-    if (TextboxText != "") {
+    if (TextboxText && TextboxText.trim() !== "") {
       detectedLanguageCodeSetter(TextboxText);
     }
   }, [TextboxText]);
 
   const handleChange = (e) => {
-    detectedLanguageCodeSetter(e.target.value);
-    setTextboxText();
+    const newText = e.target.value;
+    setTextboxText(newText);
+    if (newText) {
+      detectedLanguageCodeSetter(newText);
+    }
   };
 
   const handleSelection = () => {
@@ -146,18 +149,20 @@ const TextBox = ({
 
       <Textarea
         ref={textareaRef}
-        rows={1} // Set default rows
+        rows={30} // Set default rows
         id="textbox"
         spellCheck={false}
         // these should be in tailwind classes haha
-        style={{
-          textAlign: textAlignment,
-          fontFamily: textFont,
-          fontSize: `${textSize}px`,
-          color: textColor,
-          "--placeholder-color": textColor,
-          lineHeight: lineHeight,
-        } as React.CSSProperties}
+        style={
+          {
+            textAlign: textAlignment,
+            fontFamily: textFont,
+            fontSize: `${textSize}px`,
+            color: textColor,
+            "--placeholder-color": textColor,
+            lineHeight: lineHeight,
+          } as React.CSSProperties
+        }
         className={
           textColor === "primary"
             ? "placeholder-primary"
